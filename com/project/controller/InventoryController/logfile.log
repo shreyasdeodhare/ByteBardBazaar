@@ -1,0 +1,19 @@
+2023-12-20 00:20:48,162 - INFO - (2000, datetime.datetime(2023, 12, 19, 9, 8), None, None, 1, 5)
+2023-12-20 00:20:48,163 - INFO - (2000, datetime.datetime(2023, 12, 19, 9, 8), None, None, 2, 5)
+2023-12-20 00:25:10,845 - INFO - (2000, datetime.datetime(2023, 12, 19, 9, 8), None, None, 1, 5)
+2023-12-20 00:25:10,845 - INFO - (2000, datetime.datetime(2023, 12, 19, 9, 8), None, None, 2, 5)
+2023-12-20 00:26:20,509 - INFO - Query executed successfully: INSERT INTO Inventory (product_quantity,created_at,modified_at,deleted_at,inv_id,pid) VALUES (%s, %s,%s,%s,%s,%s)
+2023-12-20 00:26:20,509 - ERROR - Error in add_customer: the JSON object must be str, bytes or bytearray, not NoneType
+2023-12-20 00:27:27,358 - INFO - Query executed successfully: INSERT INTO Inventory (product_quantity,created_at,modified_at,deleted_at,inv_id,pid) VALUES (%s, %s,%s,%s,%s,%s)
+2023-12-20 00:28:21,632 - INFO - Query executed successfully: UPDATE Inventory SET product_quantity = %s WHERE inv_id = %s
+2023-12-20 00:28:50,099 - INFO - Query executed successfully: UPDATE Inventory SET product_quantity = %s WHERE inv_id = %s
+2023-12-20 00:29:09,951 - INFO - Query executed successfully: UPDATE Inventory SET product_quantity = %s WHERE inv_id = %s
+2023-12-20 00:29:38,082 - INFO - Query executed successfully: DELETE FROM Inventory WHERE inv_id = %s
+2023-12-20 10:08:36,910 - INFO - (2000, datetime.datetime(2023, 12, 19, 9, 8), None, None, 1, 5)
+2023-12-20 10:08:36,913 - INFO - (2000, datetime.datetime(2023, 12, 19, 9, 8), None, None, 2, 5)
+2023-12-20 10:08:36,913 - INFO - (4000, datetime.datetime(2023, 11, 9, 8, 50), None, None, 5, 8)
+2023-12-20 10:09:47,999 - ERROR - Error executing query: INSERT INTO Inventory (product_quantity,created_at,modified_at,deleted_at,inv_id,pid) VALUES (%s, %s,%s,%s,%s,%s)
+Error: 1292 (22007): Incorrect datetime value: 'Tue, 19 Dec 2023 09:08:00 GMT' for column 'created_at' at row 1
+2023-12-20 10:10:50,342 - INFO - Query executed successfully: INSERT INTO Inventory (product_quantity,created_at,modified_at,deleted_at,inv_id,pid) VALUES (%s, %s,%s,%s,%s,%s)
+2023-12-20 10:11:23,702 - INFO - Query executed successfully: UPDATE Inventory SET product_quantity = %s WHERE inv_id = %s
+2023-12-20 10:11:47,688 - INFO - Query executed successfully: DELETE FROM Inventory WHERE inv_id = %s

@@ -1,0 +1,8 @@
+2023-12-15 15:29:48,628 - INFO - (1, 1, 'Solapur', 'India', 'maharashtra', 'xyz', '413004')
+2023-12-15 15:29:48,629 - INFO - (2, 3, 'Solapur', 'India', 'Maharashtra', 'Magarpatta', '41967')
+2023-12-15 15:35:16,462 - INFO - Query executed successfully: INSERT INTO Address (aid,cid,city,country,state,street,zipcode) VALUES (%s, %s,%s,%s,%s,%s,%s)
+2023-12-15 15:41:14,746 - ERROR - Error in update_address: __init__() missing 5 required positional arguments: 'cid', 'country', 'state', 'street', and 'zipcode'
+2023-12-15 15:44:29,581 - INFO - Query executed successfully: UPDATE address SET city = %s  WHERE aid= %s
+2023-12-15 15:47:32,462 - INFO - Query executed successfully: DELETE FROM address WHERE aid = %s
+2023-12-15 15:54:47,057 - INFO - (1, 1, 'Solapur', 'India', 'maharashtra', 'xyz', '413004')
+2023-12-15 15:54:47,059 - INFO - (2, 3, 'Solapur', 'India', 'Maharashtra', 'Magarpatta', '41967')

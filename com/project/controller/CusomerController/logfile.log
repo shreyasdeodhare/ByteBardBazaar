@@ -1,0 +1,113 @@
+2023-12-14 22:21:12,909 - INFO - (1, 'John Doe', '1234567890', 'john.doe@example.com')
+2023-12-14 22:21:12,911 - INFO - (2, 'Jane Smith', '9876543210', 'jane.smith@example.com')
+2023-12-14 22:21:12,911 - INFO - (3, 'Bob Johnson', '5555555555', 'bob.johnson@example.com')
+2023-12-14 22:24:12,595 - INFO - Query executed successfully: INSERT INTO Customer (cid, cname, c_number,c_email) VALUES (%s, %s, %s,%s)
+2023-12-14 22:27:05,628 - ERROR - Error in update_employee_salary: name 'customer' is not defined
+2023-12-14 22:27:31,964 - ERROR - Error in update_employee_salary: name 'customer' is not defined
+2023-12-14 22:34:55,438 - INFO - Query executed successfully: UPDATE customer SET c_number = %s,cname= %s,c_email=%s WHERE cid = %s
+2023-12-14 22:36:54,471 - ERROR - Error in delete_customer: __init__() missing 3 required positional arguments: 'cname', 'c_number', and 'c_email'
+2023-12-14 22:45:30,834 - INFO - Query executed successfully: DELETE FROM customer WHERE cid = %s
+2023-12-15 10:22:55,167 - ERROR - Error in add_customer: __init__() got an unexpected keyword argument 'c_name'
+2023-12-15 10:24:44,824 - INFO - Query executed successfully: INSERT INTO Customer (cid, cname, c_number,c_email) VALUES (%s, %s, %s,%s)
+2023-12-15 10:43:19,478 - INFO - Query executed successfully: INSERT INTO Customer (cid, cname, c_number,c_email) VALUES (%s, %s, %s,%s)
+2023-12-15 10:48:01,486 - INFO - Query executed successfully: UPDATE customer SET c_number = %s,cname= %s,c_email=%s WHERE cid = %s
+2023-12-15 10:54:30,001 - INFO - Query executed successfully: INSERT INTO Customer (cid, cname, c_number,c_email) VALUES (%s, %s, %s,%s)
+2023-12-15 11:04:53,024 - INFO - Query executed successfully: INSERT INTO Customer (cid, cname, c_number,c_email) VALUES (%s, %s, %s,%s)
+2023-12-15 11:05:16,440 - INFO - Query executed successfully: DELETE FROM customer WHERE cid = %s
+2023-12-15 14:22:20,667 - INFO - Query executed successfully: INSERT INTO Customer (cid, cname, c_number,c_email) VALUES (%s, %s, %s,%s)
+2023-12-15 14:37:27,104 - ERROR - Error executing query: INSERT INTO Customer (cid, cname, c_number,c_email) VALUES (%s, %s, %s,%s)
+Error: 1062 (23000): Duplicate entry '8' for key 'customer.PRIMARY'
+2023-12-17 16:17:40,257 - INFO - (1, 'John Doe', 'john.doe@example.com', None)
+2023-12-17 16:17:40,602 - INFO - (3, 'Bob Johnson', 'bob.johnson@example.com', None)
+2023-12-17 16:17:40,602 - INFO - (5, 'Sammer', 'Sammer123@gmail.com', None)
+2023-12-17 16:17:40,602 - INFO - (6, 'yyash', 'yash45@gmail.com', None)
+2023-12-17 16:17:40,602 - INFO - (7, 'yyashd', 'yash67@gmail.com', None)
+2023-12-17 16:17:40,602 - INFO - (8, 'shreyas', 'shreyasdeo18@gmail.com', None)
+2023-12-17 16:19:44,432 - ERROR - Error in delete_customer: __init__() got an unexpected keyword argument 'c_id'
+2023-12-17 16:20:26,307 - ERROR - Error executing query: DELETE FROM customer WHERE cid = %s
+Error: 1451 (23000): Cannot delete or update a parent row: a foreign key constraint fails (`ecommerce`.`address`, CONSTRAINT `address_ibfk_1` FOREIGN KEY (`cid`) REFERENCES `customer` (`cid`))
+2023-12-17 16:23:58,180 - ERROR - Error executing query: DELETE FROM customer WHERE cid = %s
+Error: 1451 (23000): Cannot delete or update a parent row: a foreign key constraint fails (`ecommerce`.`orders`, CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`cid`) REFERENCES `customer` (`cid`))
+2023-12-17 16:24:52,538 - ERROR - Error executing query: DELETE FROM customer WHERE cid = %s
+Error: 1451 (23000): Cannot delete or update a parent row: a foreign key constraint fails (`ecommerce`.`orders`, CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`cid`) REFERENCES `customer` (`cid`))
+2023-12-17 16:26:30,145 - INFO - Query executed successfully: DELETE FROM customer WHERE cid = %s
+2023-12-17 16:27:07,428 - INFO - Query executed successfully: DELETE FROM customer WHERE cid = %s
+2023-12-17 16:27:22,161 - INFO - Query executed successfully: DELETE FROM customer WHERE cid = %s
+2023-12-17 16:27:33,550 - INFO - Query executed successfully: DELETE FROM customer WHERE cid = %s
+2023-12-17 16:27:56,775 - INFO - Query executed successfully: DELETE FROM customer WHERE cid = %s
+2023-12-17 16:28:33,539 - INFO - Query executed successfully: DELETE FROM customer WHERE cid = %s
+2023-12-17 16:30:46,599 - ERROR - Error executing query: INSERT INTO Customer (cid, cname, c_email, c_number) VALUES (%s, %s, %s,%s)
+Error: 1366 (HY000): Incorrect integer value: 'john.doe@example.com' for column 'c_number' at row 1
+2023-12-17 16:31:05,408 - ERROR - Error executing query: INSERT INTO Customer (cid, cname, c_email, c_number) VALUES (%s, %s, %s,%s)
+Error: 1366 (HY000): Incorrect integer value: 'john.doe@example.com' for column 'c_number' at row 1
+2023-12-17 16:32:34,231 - ERROR - Error in add_customer: 400 Bad Request: Failed to decode JSON object: Expecting property name enclosed in double quotes: line 15 column 1 (char 124)
+2023-12-17 16:32:41,088 - ERROR - Error executing query: INSERT INTO Customer (cid, cname, c_email, c_number) VALUES (%s, %s, %s,%s)
+Error: 1366 (HY000): Incorrect integer value: 'john.doe@example.com' for column 'c_number' at row 1
+2023-12-17 16:34:39,442 - INFO - Query executed successfully: INSERT INTO Customer (cid, cname, c_email, c_number) VALUES (%s, %s, %s,%s)
+2023-12-17 16:35:52,386 - INFO - Query executed successfully: INSERT INTO Customer (cid, cname, c_email, c_number) VALUES (%s, %s, %s,%s)
+2023-12-17 16:37:06,466 - INFO - Query executed successfully: INSERT INTO Customer (cid, cname, c_email, c_number) VALUES (%s, %s, %s,%s)
+2023-12-17 16:39:12,624 - INFO - Query executed successfully: INSERT INTO Customer (cid, cname, c_email, c_number) VALUES (%s, %s, %s,%s)
+2023-12-17 16:39:55,130 - INFO - Query executed successfully: INSERT INTO Customer (cid, cname, c_email, c_number) VALUES (%s, %s, %s,%s)
+2023-12-17 16:40:58,538 - INFO - Query executed successfully: INSERT INTO Customer (cid, cname, c_email, c_number) VALUES (%s, %s, %s,%s)
+2023-12-17 16:42:24,228 - INFO - Query executed successfully: INSERT INTO Customer (cid, cname, c_email, c_number) VALUES (%s, %s, %s,%s)
+2023-12-17 16:45:49,383 - INFO - Query executed successfully: UPDATE customer SET c_number = %s,cname= %s,c_email=%s WHERE cid = %s
+2023-12-17 17:04:22,262 - ERROR - Error : c_number '7719888805' already exists.
+2023-12-17 17:16:22,643 - ERROR - Error : c_number '7719888805' already exists.
+2023-12-17 17:16:22,643 - ERROR - Error in add_customer: the JSON object must be str, bytes or bytearray, not NoneType
+2023-12-17 17:31:48,000 - ERROR - Error : c_number '7719888805' already exists.
+2023-12-17 17:46:58,855 - ERROR - Error : c_number '7719888805' already exists.
+2023-12-17 17:47:17,694 - ERROR - Error : c_number '7719888805' already exists.
+2023-12-17 17:52:21,059 - ERROR - Error : c_number '7719888805' already exists.
+2023-12-17 17:58:33,222 - ERROR - Error : c_number '7719888805' already exists.
+2023-12-17 18:02:43,389 - ERROR - Error : c_number '7719888805' already exists.
+2023-12-17 18:03:01,783 - ERROR - Error : c_number '7719888805' already exists.
+2023-12-17 18:03:06,290 - ERROR - Error : c_number '7719888805' already exists.
+2023-12-17 18:03:09,788 - ERROR - Error : c_number '7719888805' already exists.
+2023-12-17 18:07:44,343 - ERROR - Error : c_number '7719888805' already exists.
+2023-12-17 18:08:02,711 - INFO - Query executed successfully: INSERT INTO Customer (cid, cname, c_email, c_number) VALUES (%s, %s, %s,%s)
+2023-12-17 18:08:02,712 - ERROR - Error in add_customer: the JSON object must be str, bytes or bytearray, not NoneType
+2023-12-17 18:09:30,500 - ERROR - Error executing query: INSERT INTO Customer (cid, cname, c_email, c_number) VALUES (%s, %s, %s,%s)
+Error: 1062 (23000): Duplicate entry '10' for key 'customer.PRIMARY'
+2023-12-17 18:09:30,501 - ERROR - Error in add_customer: the JSON object must be str, bytes or bytearray, not NoneType
+2023-12-17 18:11:55,899 - INFO - Query executed successfully: INSERT INTO Customer (cid, cname, c_email, c_number) VALUES (%s, %s, %s,%s)
+2023-12-17 18:11:55,899 - ERROR - Error in add_customer: the JSON object must be str, bytes or bytearray, not NoneType
+2023-12-17 18:53:41,836 - ERROR - Error : c_number '8080877880' already exists.
+2023-12-17 18:55:11,132 - ERROR - Error : c_number '8080877880' already exists.
+2023-12-17 18:56:21,837 - INFO - Query executed successfully: INSERT INTO Customer (cid, cname, c_email, c_number) VALUES (%s, %s, %s,%s)
+2023-12-17 18:56:21,838 - ERROR - Error: Unable to process the request.
+2023-12-17 18:56:40,222 - ERROR - Error : c_number '8060877880' already exists.
+2023-12-18 10:03:28,519 - ERROR - Error : c_number '8060877880' already exists.
+2023-12-19 18:14:16,062 - INFO - (1, 'JohnDoe', 'john.doe@example.com', 8080866780)
+2023-12-19 18:14:16,083 - INFO - (2, 'Sammer', 'sameer.jio@gmail.com', 7719777706)
+2023-12-19 18:14:16,083 - INFO - (3, 'Rajesh', 'rajesh@gmail.com', 8787867890)
+2023-12-19 18:14:16,083 - INFO - (5, 'yash', 'yash45@gmail.com', 7878645892)
+2023-12-19 18:14:16,084 - INFO - (7, 'bobjohnson', 'bobjohnson@gmail.com', 8592635892)
+2023-12-19 18:14:16,084 - INFO - (8, 'shreyas', 'deodhare.shreyas@gmail.com', 7719888805)
+2023-12-19 18:14:16,084 - INFO - (10, 'aman', 'aman@gmail.com', 7719666605)
+2023-12-19 18:14:16,084 - INFO - (11, 'jaman', 'jman@gmail.com', 8080877880)
+2023-12-19 18:14:16,084 - INFO - (12, 'saras', 'jman@gmail.com', 8060877880)
+2023-12-19 18:15:04,664 - ERROR - Error in delete_customer: 400 Bad Request: Failed to decode JSON object: Extra data: line 6 column 6 (char 132)
+2023-12-19 18:15:17,727 - ERROR - Error executing query: DELETE FROM customer WHERE cid = %s
+Error: 1451 (23000): Cannot delete or update a parent row: a foreign key constraint fails (`ecommerce`.`address`, CONSTRAINT `address_ibfk_1` FOREIGN KEY (`cid`) REFERENCES `customer` (`cid`))
+2023-12-19 18:17:55,694 - INFO - (1, 'JohnDoe', 'john.doe@example.com', 8080866780)
+2023-12-19 18:17:55,694 - INFO - (2, 'Sammer', 'sameer.jio@gmail.com', 7719777706)
+2023-12-19 18:17:55,694 - INFO - (3, 'Rajesh', 'rajesh@gmail.com', 8787867890)
+2023-12-19 18:17:55,694 - INFO - (5, 'yash', 'yash45@gmail.com', 7878645892)
+2023-12-19 18:17:55,694 - INFO - (7, 'bobjohnson', 'bobjohnson@gmail.com', 8592635892)
+2023-12-19 18:17:55,694 - INFO - (8, 'shreyas', 'deodhare.shreyas@gmail.com', 7719888805)
+2023-12-19 18:17:55,694 - INFO - (10, 'aman', 'aman@gmail.com', 7719666605)
+2023-12-19 18:17:55,694 - INFO - (11, 'jaman', 'jman@gmail.com', 8080877880)
+2023-12-19 18:17:55,694 - INFO - (12, 'saras', 'jman@gmail.com', 8060877880)
+2023-12-19 18:24:53,577 - ERROR - Error executing query: DELETE FROM customer WHERE cid = %s
+Error: 1451 (23000): Cannot delete or update a parent row: a foreign key constraint fails (`ecommerce`.`address`, CONSTRAINT `address_ibfk_1` FOREIGN KEY (`cid`) REFERENCES `customer` (`cid`))
+2023-12-19 18:25:15,736 - INFO - (1, 'JohnDoe', 'john.doe@example.com', 8080866780)
+2023-12-19 18:25:15,736 - INFO - (2, 'Sammer', 'sameer.jio@gmail.com', 7719777706)
+2023-12-19 18:25:15,736 - INFO - (3, 'Rajesh', 'rajesh@gmail.com', 8787867890)
+2023-12-19 18:25:15,736 - INFO - (5, 'yash', 'yash45@gmail.com', 7878645892)
+2023-12-19 18:25:15,736 - INFO - (7, 'bobjohnson', 'bobjohnson@gmail.com', 8592635892)
+2023-12-19 18:25:15,737 - INFO - (8, 'shreyas', 'deodhare.shreyas@gmail.com', 7719888805)
+2023-12-19 18:25:15,737 - INFO - (10, 'aman', 'aman@gmail.com', 7719666605)
+2023-12-19 18:25:15,737 - INFO - (11, 'jaman', 'jman@gmail.com', 8080877880)
+2023-12-19 18:25:15,737 - INFO - (12, 'saras', 'jman@gmail.com', 8060877880)
+2023-12-19 21:12:54,698 - ERROR - Error executing query: DELETE FROM customer WHERE cid = %s
+Error: 1451 (23000): Cannot delete or update a parent row: a foreign key constraint fails (`ecommerce`.`address`, CONSTRAINT `address_ibfk_1` FOREIGN KEY (`cid`) REFERENCES `customer` (`cid`))

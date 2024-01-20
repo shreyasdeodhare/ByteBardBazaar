@@ -1,0 +1,43 @@
+2023-12-19 23:37:20,617 - INFO - (2000, datetime.datetime(2023, 12, 19, 9, 8), None, None, 1, 5)
+2023-12-19 23:37:20,618 - INFO - (2000, datetime.datetime(2023, 12, 19, 9, 8), None, None, 2, 5)
+2023-12-19 23:42:56,203 - INFO - (2000, datetime.datetime(2023, 12, 19, 9, 8), None, None, 1, 5)
+2023-12-19 23:42:56,203 - INFO - (2000, datetime.datetime(2023, 12, 19, 9, 8), None, None, 2, 5)
+2023-12-19 23:42:56,206 - ERROR - Error executing query: UPDATE Inventory SET product_quantity = %s , WHERE odid= %s
+Error: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE odid= 8' at line 1
+2023-12-19 23:43:29,946 - INFO - (2000, datetime.datetime(2023, 12, 19, 9, 8), None, None, 1, 5)
+2023-12-19 23:43:30,234 - INFO - (2000, datetime.datetime(2023, 12, 19, 9, 8), None, None, 2, 5)
+2023-12-19 23:43:30,243 - ERROR - Error executing query: INSERT INTO Inventory (product_quantity,created_at,modified_at,deleted_at,inv_id,pid) VALUES (%s, %s,%s,%s,%s,%s)
+Error: 1265 (01000): Data truncated for column 'product_quantity' at row 1
+2023-12-19 23:44:55,531 - INFO - (2000, datetime.datetime(2023, 12, 19, 9, 8), None, None, 1, 5)
+2023-12-19 23:44:55,531 - INFO - (2000, datetime.datetime(2023, 12, 19, 9, 8), None, None, 2, 5)
+2023-12-19 23:44:55,537 - INFO - Query executed successfully: INSERT INTO Inventory (product_quantity,created_at,modified_at,deleted_at,inv_id,pid) VALUES (%s, %s,%s,%s,%s,%s)
+2023-12-19 23:46:06,130 - INFO - (2000, datetime.datetime(2023, 12, 19, 9, 8), None, None, 1, 5)
+2023-12-19 23:46:06,130 - INFO - (2000, datetime.datetime(2023, 12, 19, 9, 8), None, None, 2, 5)
+2023-12-19 23:46:06,130 - INFO - (3000, datetime.datetime(2022, 11, 9, 9, 10), None, None, 3, 8)
+2023-12-19 23:46:06,131 - ERROR - Error executing query: UPDATE Inventory SET product_quantity = %s , WHERE odid= %s
+Error: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE odid= 3' at line 1
+2023-12-19 23:47:23,187 - INFO - (2000, datetime.datetime(2023, 12, 19, 9, 8), None, None, 1, 5)
+2023-12-19 23:47:23,187 - INFO - (2000, datetime.datetime(2023, 12, 19, 9, 8), None, None, 2, 5)
+2023-12-19 23:47:23,187 - INFO - (3000, datetime.datetime(2022, 11, 9, 9, 10), None, None, 3, 8)
+2023-12-19 23:47:23,189 - ERROR - Error executing query: UPDATE Inventory SET product_quantity = %s , WHERE inv_id= %s
+Error: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE inv_id= 3' at line 1
+2023-12-19 23:48:07,537 - INFO - (2000, datetime.datetime(2023, 12, 19, 9, 8), None, None, 1, 5)
+2023-12-19 23:48:07,537 - INFO - (2000, datetime.datetime(2023, 12, 19, 9, 8), None, None, 2, 5)
+2023-12-19 23:48:07,537 - INFO - (3000, datetime.datetime(2022, 11, 9, 9, 10), None, None, 3, 8)
+2023-12-19 23:48:07,538 - ERROR - Error executing query: UPDATE Inventory SET product_quantity = %s , WHERE inv_id = %s
+Error: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE inv_id = 3' at line 1
+2023-12-19 23:52:42,898 - INFO - (2000, datetime.datetime(2023, 12, 19, 9, 8), None, None, 1, 5)
+2023-12-19 23:52:42,898 - INFO - (2000, datetime.datetime(2023, 12, 19, 9, 8), None, None, 2, 5)
+2023-12-19 23:52:42,899 - INFO - (3000, datetime.datetime(2022, 11, 9, 9, 10), None, None, 3, 8)
+2023-12-19 23:52:42,900 - ERROR - Error executing query: UPDATE Inventory SET product_quantity = %s , WHERE inv_id = %s
+Error: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE inv_id = 3' at line 1
+2023-12-19 23:54:24,515 - INFO - (2000, datetime.datetime(2023, 12, 19, 9, 8), None, None, 1, 5)
+2023-12-19 23:54:24,515 - INFO - (2000, datetime.datetime(2023, 12, 19, 9, 8), None, None, 2, 5)
+2023-12-19 23:54:24,516 - INFO - (3000, datetime.datetime(2022, 11, 9, 9, 10), None, None, 3, 8)
+2023-12-19 23:54:24,517 - ERROR - Error executing query: UPDATE Inventory SET product_quantity = %s , WHERE inv_id = %s
+Error: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE inv_id = 3' at line 1
+2023-12-20 00:04:41,910 - ERROR - Error executing query: UPDATE Inventory SET product_quantity = %s , WHERE inv_id = %s
+Error: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE inv_id = 3' at line 1
+2023-12-20 00:06:10,450 - INFO - Query executed successfully: UPDATE Inventory SET product_quantity = %s WHERE inv_id = %s
+2023-12-20 00:06:35,486 - INFO - Query executed successfully: UPDATE Inventory SET product_quantity = %s WHERE inv_id = %s
+2023-12-20 00:07:17,551 - INFO - Query executed successfully: DELETE FROM Inventory WHERE inv_id = %s

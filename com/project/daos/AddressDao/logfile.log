@@ -1,0 +1,24 @@
+2023-12-15 12:07:36,616 - INFO - (1, 1, 'Solapur', 'India', 'maharashtra', 'xyz', '413004')
+2023-12-15 12:16:34,762 - INFO - Query executed successfully: INSERT INTO Address (aid,cid,city,country,state,street,zipcode) VALUES (%s, %s,%s,%s,%s,%s,%s)
+2023-12-15 12:19:43,978 - ERROR - AttributeError: 'Address' object has no attribute 'c_number'
+2023-12-15 12:21:20,077 - ERROR - Error executing query: UPDATE address SET country = %s ,city= %s,state= %s, street = %s ,zipcode= %s WHERE aid= %s
+Error: Not all parameters were used in the SQL statement
+2023-12-15 12:22:47,892 - ERROR - Error executing query: UPDATE address SET country = %s ,city= %s,state= %s, street = %s ,zipcode= %s ,cid=%s WHERE aid= %s
+Error: 1292 (22007): Truncated incorrect DOUBLE value: 'Magarpatta'
+2023-12-15 12:24:02,747 - INFO - Query executed successfully: UPDATE address SET country = %s ,city= %s,state= %s, street = %s ,zipcode= %s ,cid=%s WHERE aid= %s
+2023-12-15 12:27:04,815 - ERROR - Error executing query: UPDATE address SET country = %s ,city= %s,state= %s, street = %s ,zipcode= %s ,cid=%s WHERE aid= %s
+Error: 1292 (22007): Truncated incorrect DOUBLE value: 'India'
+2023-12-15 12:52:42,079 - INFO - Query executed successfully: UPDATE address SET city = %s  WHERE aid= %s
+2023-12-15 12:57:02,186 - INFO - Query executed successfully: UPDATE address SET city = %s  WHERE aid= %s
+2023-12-15 12:58:47,384 - INFO - Query executed successfully: DELETE FROM customer WHERE cid = %s
+2023-12-15 13:00:11,515 - INFO - Query executed successfully: DELETE FROM customer WHERE cid = %s
+2023-12-15 13:00:33,026 - INFO - Query executed successfully: DELETE FROM address WHERE aid = %s
+2023-12-15 13:00:34,413 - INFO - Query executed successfully: DELETE FROM address WHERE aid = %s
+2023-12-15 13:02:01,670 - INFO - Query executed successfully: UPDATE address SET city = %s  WHERE aid= %s
+2023-12-15 13:02:36,502 - INFO - Query executed successfully: INSERT INTO Address (aid,cid,city,country,state,street,zipcode) VALUES (%s, %s,%s,%s,%s,%s,%s)
+2023-12-15 13:04:06,012 - INFO - Query executed successfully: UPDATE address SET city = %s  WHERE aid= %s
+2023-12-15 14:56:08,239 - INFO - Query executed successfully: DELETE FROM address WHERE aid = %s
+2023-12-15 15:11:34,510 - INFO - Query executed successfully: DELETE FROM address WHERE aid = %s
+2023-12-15 15:12:02,510 - INFO - Query executed successfully: INSERT INTO Address (aid,cid,city,country,state,street,zipcode) VALUES (%s, %s,%s,%s,%s,%s,%s)
+2023-12-15 15:18:40,680 - INFO - Query executed successfully: UPDATE address SET city = %s  WHERE aid= %s
+2023-12-15 15:19:02,887 - INFO - Query executed successfully: UPDATE address SET city = %s  WHERE aid= %s

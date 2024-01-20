@@ -1,0 +1,18 @@
+2023-12-19 11:15:34,759 - INFO - Query executed successfully: INSERT INTO OrderDetails (odid,oid,payid,pid,quantity) VALUES (%s, %s,%s,%s,%s)
+2023-12-19 11:24:59,592 - INFO - (1, 2, 2, 4, '45000')
+2023-12-19 11:24:59,606 - INFO - Query executed successfully: INSERT INTO OrderDetails (odid,oid,payid,pid,quantity) VALUES (%s, %s,%s,%s,%s)
+2023-12-19 11:25:34,878 - INFO - (1, 2, 2, 4, '45000')
+2023-12-19 11:25:34,878 - INFO - (2, 2, 2, 4, '65000')
+2023-12-19 11:25:34,893 - ERROR - Error executing query: INSERT INTO OrderDetails (odid,oid,payid,pid,quantity) VALUES (%s, %s,%s,%s,%s)
+Error: 1452 (23000): Cannot add or update a child row: a foreign key constraint fails (`ecommerce`.`orderdetails`, CONSTRAINT `orderdetails_ibfk_3` FOREIGN KEY (`payid`) REFERENCES `payments` (`payid`))
+2023-12-19 11:26:43,660 - INFO - (1, 2, 2, 4, '45000')
+2023-12-19 11:26:43,660 - INFO - (2, 2, 2, 4, '65000')
+2023-12-19 11:26:43,670 - INFO - Query executed successfully: INSERT INTO OrderDetails (odid,oid,payid,pid,quantity) VALUES (%s, %s,%s,%s,%s)
+2023-12-19 11:30:28,147 - INFO - (1, 2, 2, 4, '45000')
+2023-12-19 11:30:28,147 - INFO - (2, 2, 2, 4, '65000')
+2023-12-19 11:30:28,147 - INFO - (4, 2, 3, 4, '21')
+2023-12-19 11:30:28,156 - INFO - Query executed successfully: UPDATE OrderDetails SET quantity = %s  WHERE odid= %s
+2023-12-19 11:59:49,215 - INFO - (1, 2, 2, 4, '45000')
+2023-12-19 11:59:49,229 - INFO - (2, 2, 2, 4, '65000')
+2023-12-19 11:59:49,229 - INFO - (4, 2, 3, 4, '30')
+2023-12-19 11:59:49,249 - INFO - Query executed successfully: DELETE FROM OrderDetails WHERE odid = %s

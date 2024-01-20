@@ -1,0 +1,23 @@
+
+2023-12-15 17:10:38,647 - ERROR - Error executing query: DELETE FROM customer WHERE cid = %s
+Error: 1451 (23000): Cannot delete or update a parent row: a foreign key constraint fails (`ecommerce`.`address`, CONSTRAINT `address_ibfk_1` FOREIGN KEY (`cid`) REFERENCES `customer` (`cid`))
+2023-12-15 17:59:00,771 - ERROR - AttributeError: 'Orders' object has no attribute 'orderDate'
+2023-12-15 17:59:35,318 - ERROR - Error executing query: INSERT INTO Orders (oid,cid,city,orderDate,payid) VALUES (%s, %s,%s,%s,%s)
+Error: Not enough parameters for the SQL statement
+2023-12-15 18:00:17,131 - ERROR - Error executing query: INSERT INTO Orders (oid,cid,city,orderDate,payid) VALUES (%s, %s,%s,%s,%s)
+Error: Not enough parameters for the SQL statement
+2023-12-15 18:02:21,908 - ERROR - Error executing query: INSERT INTO Orders (oid,cid,orderdate,payid) VALUES (%s, %s,%s,%s)
+Error: 1292 (22007): Incorrect date value: '20120618 10:34:09 AM' for column 'orderDate' at row 1
+2023-12-15 18:04:25,345 - ERROR - Error executing query: INSERT INTO Orders (oid,cid,orderdate,payid) VALUES (%s, %s,%s,%s)
+Error: 1292 (22007): Incorrect date value: '2012-06-18 10:34:09 AM' for column 'orderDate' at row 1
+2023-12-15 18:12:49,070 - ERROR - Error executing query: INSERT INTO Orders (oid,cid,orderdate,payid) VALUES (%s, %s,%s,%s)
+Error: 1452 (23000): Cannot add or update a child row: a foreign key constraint fails (`ecommerce`.`orders`, CONSTRAINT `fk_orders_payments` FOREIGN KEY (`payid`) REFERENCES `payments` (`payid`))
+2023-12-15 18:19:24,456 - ERROR - Error executing query: INSERT INTO Orders (oid,cid,orderdate,payid) VALUES (%s, %s,%s)
+Error: Not all parameters were used in the SQL statement
+2023-12-15 19:40:05,713 - ERROR - Error executing query: INSERT INTO Orders (oid,cid,orderdate,payid) VALUES (%s, %s,%s,%s)
+Error: 1452 (23000): Cannot add or update a child row: a foreign key constraint fails (`ecommerce`.`orders`, CONSTRAINT `fk_orders_payments` FOREIGN KEY (`payid`) REFERENCES `payments` (`payid`) ON DELETE CASCADE ON UPDATE CASCADE)
+2023-12-15 20:23:28,736 - ERROR - Error executing query: INSERT INTO Orders (oid,cid,orderdate,payid) VALUES (%s, %s,%s,%s)
+Error: 1062 (23000): Duplicate entry '1' for key 'orders.PRIMARY'
+2023-12-15 20:26:17,645 - ERROR - Error executing query: INSERT INTO Orders (oid,cid,orderdate,payid) VALUES (%s, %s,%s,%s)
+Error: 1452 (23000): Cannot add or update a child row: a foreign key constraint fails (`ecommerce`.`orders`, CONSTRAINT `fk_order_payments` FOREIGN KEY (`payid`) REFERENCES `payments` (`payid`))
+2023-12-18 17:48:28,649 - INFO - (1, 1, datetime.date(2023, 12, 15), 1)

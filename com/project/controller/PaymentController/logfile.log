@@ -1,0 +1,84 @@
+2023-12-18 14:36:14,231 - INFO - (1, datetime.date(2023, 12, 15), 65000.0, 'cod', 2)
+2023-12-18 14:36:14,231 - INFO - (2, datetime.date(2023, 12, 16), 55000.0, 'credit card', 2)
+2023-12-18 14:36:14,231 - INFO - (3, datetime.date(2023, 12, 11), 55000.0, 'upi', 1)
+2023-12-18 14:43:16,061 - INFO - (1, datetime.date(2023, 12, 15), 65000.0, 'cod', 2)
+2023-12-18 14:43:16,061 - INFO - (2, datetime.date(2023, 12, 16), 55000.0, 'credit card', 2)
+2023-12-18 14:43:16,061 - INFO - (3, datetime.date(2023, 12, 11), 55000.0, 'upi', 1)
+2023-12-18 14:49:53,878 - INFO - (1, datetime.date(2023, 12, 15), 65000.0, 'cod', 2)
+2023-12-18 14:49:53,878 - INFO - (2, datetime.date(2023, 12, 16), 55000.0, 'credit card', 2)
+2023-12-18 14:49:53,878 - INFO - (3, datetime.date(2023, 12, 11), 55000.0, 'upi', 1)
+2023-12-18 15:04:14,172 - INFO - (1, datetime.date(2023, 12, 15), 65000.0, 'cod', 2)
+2023-12-18 15:04:14,173 - INFO - (2, datetime.date(2023, 12, 16), 55000.0, 'credit card', 2)
+2023-12-18 15:04:14,173 - INFO - (3, datetime.date(2023, 12, 11), 55000.0, 'upi', 1)
+2023-12-18 15:22:35,248 - INFO - (1, datetime.date(2023, 12, 15), 65000.0, 'cod', 2)
+2023-12-18 15:22:35,248 - INFO - (2, datetime.date(2023, 12, 16), 55000.0, 'credit card', 2)
+2023-12-18 15:22:35,248 - INFO - (3, datetime.date(2023, 12, 11), 55000.0, 'upi', 1)
+2023-12-18 15:25:47,184 - INFO - (1, datetime.date(2023, 12, 15), 65000.0, 'cod', 2)
+2023-12-18 15:25:47,184 - INFO - (2, datetime.date(2023, 12, 16), 55000.0, 'credit card', 2)
+2023-12-18 15:25:47,184 - INFO - (3, datetime.date(2023, 12, 11), 55000.0, 'upi', 1)
+2023-12-18 15:26:17,750 - ERROR - Error in add_payment: __init__() got an unexpected keyword argument '_amount'
+2023-12-18 15:26:48,498 - ERROR - Error executing query: Insert into payments(payid,oid,pdate,amount,paymethod) values(%s,%s,%s,%s,%s);
+Error: 1292 (22007): Incorrect date value: '2' for column 'pdate' at row 1
+2023-12-18 15:27:58,977 - ERROR - Error executing query: Insert into payments(payid,oid,pdate,amount,paymethod) values(%s,%s,%s,%s,%s);
+Error: 1292 (22007): Incorrect date value: '1' for column 'pdate' at row 1
+2023-12-18 15:30:46,851 - ERROR - Error executing query: UPDATE payments SET  amount= %s,pdate = %s,paymethod = %s  WHERE payid= %s
+Error: 1292 (22007): Incorrect date value: '1' for column 'pdate' at row 1
+2023-12-18 15:32:21,222 - ERROR - Error executing query: UPDATE payments SET  amount= %s,pdate = %s,paymethod = %s  WHERE payid= %s
+Error: 1292 (22007): Incorrect date value: '1' for column 'pdate' at row 1
+2023-12-18 15:37:05,203 - ERROR - Error executing query: UPDATE payments SET  amount= %s,pdate = %s,paymethod = %s  WHERE payid= %s
+Error: 1292 (22007): Incorrect date value: '1' for column 'pdate' at row 1
+2023-12-18 15:43:10,541 - ERROR - Error executing query: UPDATE payments SET  amount= %s,pdate = %s,paymethod = %s  WHERE payid= %s
+Error: 1292 (22007): Incorrect date value: '1' for column 'pdate' at row 1
+2023-12-18 16:02:52,108 - ERROR - Error executing query: UPDATE payments SET  amount= %s,pdate = %s,paymethod = %s  WHERE payid= %s
+Error: 1292 (22007): Incorrect date value: '1' for column 'pdate' at row 1
+2023-12-18 16:04:56,198 - ERROR - Error in update_payment: 400 Bad Request: Failed to decode JSON object: Expecting property name enclosed in double quotes: line 8 column 5 (char 137)
+2023-12-18 16:05:05,869 - ERROR - Error in update_payment: __init__() missing 1 required positional argument: 'oid'
+2023-12-18 16:05:28,523 - ERROR - Error executing query: UPDATE payments SET  amount= %s,pdate = %s,paymethod = %s  WHERE payid= %s
+Error: 1292 (22007): Incorrect date value: '1' for column 'pdate' at row 1
+2023-12-18 16:06:23,193 - ERROR - Error executing query: UPDATE payments SET  amount= %s,pdate = %s,paymethod = %s  WHERE payid= %s
+Error: 1292 (22007): Incorrect date value: '2' for column 'pdate' at row 1
+2023-12-18 16:07:57,548 - ERROR - Error executing query: UPDATE payments SET  amount= %s,pdate = %s,paymethod = %s  WHERE payid= %s
+Error: 1292 (22007): Incorrect date value: '2' for column 'pdate' at row 1
+2023-12-18 16:10:23,033 - ERROR - Error executing query: UPDATE payments SET  amount= %s,pdate = %s,paymethod = %s  WHERE payid= %s
+Error: 1292 (22007): Incorrect date value: '2' for column 'pdate' at row 1
+2023-12-18 16:13:41,775 - ERROR - Error executing query: UPDATE payments SET  amount= %s,pdate = %s,paymethod = %s  WHERE payid= %s
+Error: 1292 (22007): Incorrect date value: '1' for column 'pdate' at row 1
+2023-12-18 16:23:13,414 - ERROR - Error executing query: Insert into payments(payid,oid,pdate,amount,paymethod) values(%s,%s,%s,%s,%s);
+Error: 1292 (22007): Incorrect date value: '1' for column 'pdate' at row 1
+2023-12-18 16:24:36,520 - ERROR - Error executing query: Insert into payments(payid,oid,pdate,amount,paymethod) values(%s,%s,%s,%s,%s);
+Error: 1292 (22007): Incorrect date value: '1' for column 'pdate' at row 1
+2023-12-18 16:26:04,730 - INFO - (1, datetime.date(2023, 12, 15), 65000.0, 'cod', 2)
+2023-12-18 16:26:04,730 - INFO - (2, datetime.date(2023, 12, 16), 55000.0, 'credit card', 2)
+2023-12-18 16:26:04,730 - INFO - (3, datetime.date(2023, 12, 11), 55000.0, 'upi', 1)
+2023-12-18 16:28:25,994 - ERROR - Error executing query: Insert into payments(payid,oid,pdate,amount,paymethod) values(%s,%s,%s,%s,%s);
+Error: 1292 (22007): Incorrect date value: '1' for column 'pdate' at row 1
+2023-12-18 16:29:02,012 - ERROR - Error executing query: Insert into payments(payid,oid,pdate,amount,paymethod) values(%s,%s,%s,%s,%s);
+Error: 1292 (22007): Incorrect date value: '1' for column 'pdate' at row 1
+2023-12-18 16:30:02,876 - ERROR - Error executing query: Insert into payments(payid,oid,pdate,amount,paymethod) values(%s,%s,%s,%s,%s);
+Error: 1292 (22007): Incorrect date value: '1' for column 'pdate' at row 1
+2023-12-18 16:30:59,155 - INFO - (1, datetime.date(2023, 12, 15), 65000.0, 'cod', 2)
+2023-12-18 16:30:59,155 - INFO - (2, datetime.date(2023, 12, 16), 55000.0, 'credit card', 2)
+2023-12-18 16:30:59,155 - INFO - (3, datetime.date(2023, 12, 11), 55000.0, 'upi', 1)
+2023-12-18 16:31:28,441 - INFO - (1, datetime.date(2023, 12, 15), 65000.0, 'cod', 2)
+2023-12-18 16:31:28,441 - INFO - (2, datetime.date(2023, 12, 16), 55000.0, 'credit card', 2)
+2023-12-18 16:31:28,441 - INFO - (3, datetime.date(2023, 12, 11), 55000.0, 'upi', 1)
+2023-12-18 16:32:15,611 - ERROR - Error executing query: Insert into payments(payid,oid,pdate,amount,paymethod) values(%s,%s,%s,%s,%s);
+Error: 1292 (22007): Incorrect date value: '1' for column 'pdate' at row 1
+2023-12-18 16:51:37,288 - ERROR - Error executing query: Insert into payments(payid,oid,pdate,amount,paymethod) values(%s,%s,%s,%s,%s);
+Error: 1292 (22007): Incorrect date value: '1' for column 'pdate' at row 1
+2023-12-18 17:33:14,962 - INFO - Query executed successfully: Insert into payments(payid,pdate,amount,paymethod,oid) values(%s,%s,%s,%s,%s);
+2023-12-18 17:33:43,853 - ERROR - Error executing query: Insert into payments(payid,pdate,amount,paymethod,oid) values(%s,%s,%s,%s,%s);
+Error: 1062 (23000): Duplicate entry '6' for key 'payments.PRIMARY'
+2023-12-18 17:34:13,074 - INFO - Query executed successfully: UPDATE payments SET  amount= %s,pdate = %s,paymethod = %s  WHERE payid= %s
+2023-12-18 17:34:38,759 - INFO - Query executed successfully: DELETE FROM payments WHERE payid = %s
+2023-12-18 17:36:17,795 - INFO - Query executed successfully: DELETE FROM customer WHERE cid = %s
+2023-12-18 17:41:27,123 - INFO - Query executed successfully: DELETE FROM payments WHERE payid = %s
+2023-12-18 22:14:53,711 - INFO - (1, datetime.date(2023, 12, 15), 65000.0, 'cod', 2)
+2023-12-18 22:14:53,807 - INFO - (2, datetime.date(2023, 12, 16), 55000.0, 'credit card', 2)
+2023-12-18 22:14:53,807 - INFO - (3, datetime.date(2023, 12, 11), 55000.0, 'upi', 1)
+2023-12-18 22:14:53,807 - INFO - (4, datetime.date(2023, 9, 15), 65000.0, 'gpay', 2)
+2023-12-18 22:14:53,807 - INFO - (5, datetime.date(2023, 12, 19), 65000.0, 'gpay', 1)
+2023-12-18 22:15:44,686 - INFO - Query executed successfully: DELETE FROM payments WHERE payid = %s
+2023-12-18 22:16:33,094 - ERROR - Error executing query: DELETE FROM payments WHERE payid = %s
+Error: 1451 (23000): Cannot delete or update a parent row: a foreign key constraint fails (`ecommerce`.`orders`, CONSTRAINT `orders_ibfk_2` FOREIGN KEY (`payid`) REFERENCES `payments` (`payid`))
+2023-12-18 22:18:12,564 - INFO - Query executed successfully: DELETE FROM payments WHERE payid = %s

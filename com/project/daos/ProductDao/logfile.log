@@ -1,0 +1,86 @@
+2023-12-16 11:33:50,456 - ERROR - Error executing query: INSERT INTO Product (p_name,p_available_stock,p_sell_stock,p_price_per_item,p_is_available,p_category_id) VALUES (%s, %s,%s,%s,%s,%s,%s)
+Error: Not enough parameters for the SQL statement
+2023-12-16 11:33:50,477 - INFO - Query executed successfully: UPDATE product SET p_price_per_item = %s  WHERE p_id= %s
+2023-12-16 11:33:50,499 - INFO - Query executed successfully: DELETE FROM product WHERE p_id = %s
+2023-12-16 11:35:11,708 - ERROR - Error executing query: INSERT INTO Product (p_name,p_available_stock,p_sell_stock,p_price_per_item,p_is_available,p_category_id) VALUES (%s,%s,%s,%s,%s,%s)
+Error: 1054 (42S22): Unknown column 'p_is_available' in 'field list'
+2023-12-16 11:35:11,712 - INFO - Query executed successfully: UPDATE product SET p_price_per_item = %s  WHERE p_id= %s
+2023-12-16 11:35:11,716 - INFO - Query executed successfully: DELETE FROM product WHERE p_id = %s
+2023-12-16 11:59:21,672 - INFO - Query executed successfully: INSERT INTO Product (p_name,p_available_stock,p_sell_stock,p_price_per_item,p_is_available,p_category_id) VALUES (%s,%s,%s,%s,%s,%s)
+2023-12-16 11:59:21,690 - INFO - Query executed successfully: UPDATE product SET p_price_per_item = %s  WHERE p_id= %s
+2023-12-16 11:59:21,691 - INFO - Query executed successfully: DELETE FROM product WHERE p_id = %s
+2023-12-16 12:58:19,620 - INFO - Query executed successfully: DELETE FROM product WHERE p_id = %s
+2023-12-16 13:02:39,313 - INFO - Query executed successfully: DELETE FROM product WHERE p_id = %s
+2023-12-16 13:06:31,716 - INFO - Query executed successfully: INSERT INTO Product (p_name,p_available_stock,p_sell_stock,p_price_per_item,p_is_available,p_category_id) VALUES (%s,%s,%s,%s,%s,%s)
+2023-12-16 13:07:56,896 - INFO - Query executed successfully: DELETE FROM product WHERE p_id = %s
+2023-12-16 13:08:50,368 - INFO - Query executed successfully: DELETE FROM product WHERE p_id = %s
+2023-12-16 13:09:07,341 - INFO - Query executed successfully: DELETE FROM product WHERE p_id = %s
+2023-12-16 13:09:36,094 - INFO - Query executed successfully: INSERT INTO Product (p_name,p_available_stock,p_sell_stock,p_price_per_item,p_is_available,p_category_id) VALUES (%s,%s,%s,%s,%s,%s)
+2023-12-16 13:10:08,397 - INFO - Query executed successfully: INSERT INTO Product (p_name,p_available_stock,p_sell_stock,p_price_per_item,p_is_available,p_category_id) VALUES (%s,%s,%s,%s,%s,%s)
+2023-12-16 13:10:45,212 - INFO - Query executed successfully: INSERT INTO Product (p_name,p_available_stock,p_sell_stock,p_price_per_item,p_is_available,p_category_id) VALUES (%s,%s,%s,%s,%s,%s)
+2023-12-16 14:09:01,206 - INFO - Query executed successfully: UPDATE product SET p_price_per_item = %s,p_available_stock = %s  WHERE p_id= %s
+2023-12-16 14:10:40,765 - INFO - Query executed successfully: UPDATE product SET p_price_per_item = %s,p_available_stock = %s  WHERE p_id= %s
+2023-12-16 14:13:15,707 - INFO - Query executed successfully: DELETE FROM product WHERE p_id = %s
+2023-12-16 14:23:31,351 - INFO - Query executed successfully: INSERT INTO Product (p_name,p_available_stock,p_sell_stock,p_price_per_item,p_is_available,p_category_id) VALUES (%s,%s,%s,%s,%s,%s)
+2023-12-16 14:26:25,163 - INFO - Query executed successfully: DELETE FROM product WHERE p_id = %s
+2023-12-16 14:43:12,049 - INFO - Query executed successfully: DELETE FROM product WHERE p_id = %s
+2023-12-16 14:43:12,186 - ERROR - Error executing query: Alter table Product(p_id=3, p_name=None,  p_available_stock=None, p_sell_stock=None, p_price_per_item=None, p_is_available=None ,p_category_id=None) AUTO_INCREMENT=3
+Error: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(p_id=3, p_name=None,  p_available_stock=None, p_sell_stock=None, p_price_per_it' at line 1
+2023-12-16 14:43:44,463 - INFO - Query executed successfully: DELETE FROM product WHERE p_id = %s
+2023-12-16 14:43:44,464 - ERROR - Error executing query: Alter table Product(p_id=4, p_name=None,  p_available_stock=None, p_sell_stock=None, p_price_per_item=None, p_is_available=None ,p_category_id=None) AUTO_INCREMENT=4
+Error: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(p_id=4, p_name=None,  p_available_stock=None, p_sell_stock=None, p_price_per_it' at line 1
+2023-12-16 14:44:16,042 - INFO - Query executed successfully: INSERT INTO Product (p_name,p_available_stock,p_sell_stock,p_price_per_item,p_is_available,p_category_id) VALUES (%s,%s,%s,%s,%s,%s)
+2023-12-16 15:11:02,238 - INFO - Query executed successfully: INSERT INTO Product (p_name,p_available_stock,p_sell_stock,p_price_per_item,p_is_available,p_category_id) VALUES (%s,%s,%s,%s,%s,%s)
+2023-12-16 15:11:28,862 - INFO - Query executed successfully: DELETE FROM product WHERE p_id = %s
+2023-12-16 15:11:28,864 - ERROR - Error executing query: ALTER TABLE Product(p_id=5, p_name=None,  p_available_stock=None, p_sell_stock=None, p_price_per_item=None, p_is_available=None ,p_category_id=None) AUTO_INCREMENT = CASE WHEN 5 <= (SELECT MAX(p_id) FROM Product(p_id=5, p_name=None,  p_available_stock=None, p_sell_stock=None, p_price_per_item=None, p_is_available=None ,p_category_id=None)) THEN 5 ELSE (SELECT MAX(p_id) FROM Product(p_id=5, p_name=None,  p_available_stock=None, p_sell_stock=None, p_price_per_item=None, p_is_available=None ,p_category_id=None)) + 1 END
+Error: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(p_id=5, p_name=None,  p_available_stock=None, p_sell_stock=None, p_price_per_it' at line 1
+2023-12-16 15:11:56,414 - INFO - Query executed successfully: DELETE FROM product WHERE p_id = %s
+2023-12-16 15:11:56,417 - ERROR - Error executing query: ALTER TABLE Product(p_id=6, p_name=None,  p_available_stock=None, p_sell_stock=None, p_price_per_item=None, p_is_available=None ,p_category_id=None) AUTO_INCREMENT = CASE WHEN 6 <= (SELECT MAX(p_id) FROM Product(p_id=6, p_name=None,  p_available_stock=None, p_sell_stock=None, p_price_per_item=None, p_is_available=None ,p_category_id=None)) THEN 6 ELSE (SELECT MAX(p_id) FROM Product(p_id=6, p_name=None,  p_available_stock=None, p_sell_stock=None, p_price_per_item=None, p_is_available=None ,p_category_id=None)) + 1 END
+Error: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(p_id=6, p_name=None,  p_available_stock=None, p_sell_stock=None, p_price_per_it' at line 1
+2023-12-16 15:12:54,203 - INFO - Query executed successfully: INSERT INTO Product (p_name,p_available_stock,p_sell_stock,p_price_per_item,p_is_available,p_category_id) VALUES (%s,%s,%s,%s,%s,%s)
+2023-12-16 15:16:36,497 - INFO - Query executed successfully: INSERT INTO Product (p_name,p_available_stock,p_sell_stock,p_price_per_item,p_is_available,p_category_id) VALUES (%s,%s,%s,%s,%s,%s)
+2023-12-16 15:18:00,680 - INFO - Query executed successfully: INSERT INTO Product (p_name,p_available_stock,p_sell_stock,p_price_per_item,p_is_available,p_category_id) VALUES (%s,%s,%s,%s,%s,%s)
+2023-12-16 15:18:00,687 - INFO - Query executed successfully: DELETE FROM product WHERE p_id = %s
+2023-12-16 15:18:00,689 - ERROR - Error executing query: ALTER TABLE <class 'com.project.entities.Product.Product.Product'> AUTO_INCREMENT = CASE WHEN 7 <= (SELECT MAX(p_id) FROM Product(p_id=7, p_name=None,  p_available_stock=None, p_sell_stock=None, p_price_per_item=None, p_is_available=None ,p_category_id=None)) THEN 7 ELSE (SELECT MAX(p_id) FROM Product(p_id=7, p_name=None,  p_available_stock=None, p_sell_stock=None, p_price_per_item=None, p_is_available=None ,p_category_id=None)) + 1 END
+Error: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '<class 'com.project.entities.Product.Product.Product'> AUTO_INCREMENT = CASE WHE' at line 1
+2023-12-16 15:18:10,613 - INFO - Query executed successfully: INSERT INTO Product (p_name,p_available_stock,p_sell_stock,p_price_per_item,p_is_available,p_category_id) VALUES (%s,%s,%s,%s,%s,%s)
+2023-12-16 15:18:10,619 - INFO - Query executed successfully: DELETE FROM product WHERE p_id = %s
+2023-12-16 15:18:10,619 - ERROR - Error executing query: ALTER TABLE <class 'com.project.entities.Product.Product.Product'> AUTO_INCREMENT = CASE WHEN 8 <= (SELECT MAX(p_id) FROM Product(p_id=8, p_name=None,  p_available_stock=None, p_sell_stock=None, p_price_per_item=None, p_is_available=None ,p_category_id=None)) THEN 8 ELSE (SELECT MAX(p_id) FROM Product(p_id=8, p_name=None,  p_available_stock=None, p_sell_stock=None, p_price_per_item=None, p_is_available=None ,p_category_id=None)) + 1 END
+Error: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '<class 'com.project.entities.Product.Product.Product'> AUTO_INCREMENT = CASE WHE' at line 1
+2023-12-16 15:18:54,125 - INFO - Query executed successfully: DELETE FROM product WHERE p_id = %s
+2023-12-16 15:18:54,127 - ERROR - Error executing query: ALTER TABLE <class 'com.project.entities.Product.Product.Product'> AUTO_INCREMENT = CASE WHEN 9 <= (SELECT MAX(p_id) FROM Product(p_id=9, p_name=None,  p_available_stock=None, p_sell_stock=None, p_price_per_item=None, p_is_available=None ,p_category_id=None)) THEN 9 ELSE (SELECT MAX(p_id) FROM Product(p_id=9, p_name=None,  p_available_stock=None, p_sell_stock=None, p_price_per_item=None, p_is_available=None ,p_category_id=None)) + 1 END
+Error: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '<class 'com.project.entities.Product.Product.Product'> AUTO_INCREMENT = CASE WHE' at line 1
+2023-12-16 15:19:02,826 - INFO - Query executed successfully: DELETE FROM product WHERE p_id = %s
+2023-12-16 15:19:02,828 - ERROR - Error executing query: ALTER TABLE <class 'com.project.entities.Product.Product.Product'> AUTO_INCREMENT = CASE WHEN 10 <= (SELECT MAX(p_id) FROM Product(p_id=10, p_name=None,  p_available_stock=None, p_sell_stock=None, p_price_per_item=None, p_is_available=None ,p_category_id=None)) THEN 10 ELSE (SELECT MAX(p_id) FROM Product(p_id=10, p_name=None,  p_available_stock=None, p_sell_stock=None, p_price_per_item=None, p_is_available=None ,p_category_id=None)) + 1 END
+Error: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '<class 'com.project.entities.Product.Product.Product'> AUTO_INCREMENT = CASE WHE' at line 1
+2023-12-16 15:22:16,450 - INFO - Query executed successfully: DELETE FROM product WHERE p_id = %s
+2023-12-16 15:22:16,451 - ERROR - Error executing query: ALTER TABLE product AUTO_INCREMENT = CASE WHEN 10 <= (SELECT MAX(p_id) FROM Product(p_id=10, p_name=None,  p_available_stock=None, p_sell_stock=None, p_price_per_item=None, p_is_available=None ,p_category_id=None)) THEN 10 ELSE (SELECT MAX(p_id) FROM Product(p_id=10, p_name=None,  p_available_stock=None, p_sell_stock=None, p_price_per_item=None, p_is_available=None ,p_category_id=None)) + 1 END
+Error: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'CASE WHEN 10 <= (SELECT MAX(p_id) FROM Product(p_id=10, p_name=None,  p_availabl' at line 1
+2023-12-16 15:22:56,591 - INFO - Query executed successfully: INSERT INTO Product (p_name,p_available_stock,p_sell_stock,p_price_per_item,p_is_available,p_category_id) VALUES (%s,%s,%s,%s,%s,%s)
+2023-12-16 15:25:47,605 - INFO - Query executed successfully: DELETE FROM product WHERE p_id = %s
+2023-12-16 15:25:47,607 - ERROR - Error executing query: ALTER TABLE product AUTO_INCREMENT = CASE WHEN 11 <= (SELECT MAX(p_id) FROM Product(p_id=11, p_name=None,  p_available_stock=None, p_sell_stock=None, p_price_per_item=None, p_is_available=None ,p_category_id=None)) THEN 11 ELSE (SELECT MAX(p_id) FROM Product(p_id=11, p_name=None,  p_available_stock=None, p_sell_stock=None, p_price_per_item=None, p_is_available=None ,p_category_id=None)) + 1 END
+Error: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'CASE WHEN 11 <= (SELECT MAX(p_id) FROM Product(p_id=11, p_name=None,  p_availabl' at line 1
+2023-12-16 15:36:18,238 - INFO - Query executed successfully: INSERT INTO Product (p_name,p_available_stock,p_sell_stock,p_price_per_item,p_is_available,p_category_id) VALUES (%s,%s,%s,%s,%s,%s)
+2023-12-16 15:36:47,951 - INFO - Query executed successfully: DELETE FROM product WHERE p_id = %s
+2023-12-16 15:40:29,679 - INFO - Query executed successfully: INSERT INTO Product (p_name,p_available_stock,p_sell_stock,p_price_per_item,p_is_available,p_category_id) VALUES (%s,%s,%s,%s,%s,%s)
+2023-12-16 15:58:53,676 - INFO - Query executed successfully: INSERT INTO Product (p_name,p_available_stock,p_sell_stock,p_price_per_item,p_is_available,p_category_id) VALUES (%s,%s,%s,%s,%s,%s)
+2023-12-16 16:01:35,478 - INFO - Query executed successfully: INSERT INTO Product (p_name,p_available_stock,p_sell_stock,p_price_per_item,p_is_available,p_category_id) VALUES (%s,%s,%s,%s,%s,%s)
+2023-12-16 16:02:10,501 - INFO - Query executed successfully: DELETE FROM product WHERE p_id = %s
+2023-12-16 16:02:10,568 - INFO - Query executed successfully: alter table product AUTO_INCREMENT = 1
+2023-12-16 16:02:19,132 - INFO - Query executed successfully: DELETE FROM product WHERE p_id = %s
+2023-12-16 16:02:19,154 - INFO - Query executed successfully: alter table product AUTO_INCREMENT = 1
+2023-12-16 16:02:25,017 - INFO - Query executed successfully: DELETE FROM product WHERE p_id = %s
+2023-12-16 16:02:25,041 - INFO - Query executed successfully: alter table product AUTO_INCREMENT = 1
+2023-12-16 16:02:53,094 - INFO - Query executed successfully: INSERT INTO Product (p_name,p_available_stock,p_sell_stock,p_price_per_item,p_is_available,p_category_id) VALUES (%s,%s,%s,%s,%s,%s)
+2023-12-16 16:03:20,864 - INFO - Query executed successfully: INSERT INTO Product (p_name,p_available_stock,p_sell_stock,p_price_per_item,p_is_available,p_category_id) VALUES (%s,%s,%s,%s,%s,%s)
+2023-12-16 16:03:28,489 - INFO - Query executed successfully: INSERT INTO Product (p_name,p_available_stock,p_sell_stock,p_price_per_item,p_is_available,p_category_id) VALUES (%s,%s,%s,%s,%s,%s)
+2023-12-16 16:04:01,518 - INFO - Query executed successfully: INSERT INTO Product (p_name,p_available_stock,p_sell_stock,p_price_per_item,p_is_available,p_category_id) VALUES (%s,%s,%s,%s,%s,%s)
+2023-12-16 16:04:01,520 - INFO - Query executed successfully: DELETE FROM product WHERE p_id = %s
+2023-12-16 16:04:01,546 - INFO - Query executed successfully: alter table product AUTO_INCREMENT = 1
+2023-12-18 12:33:36,909 - INFO - Query executed successfully: INSERT INTO product (p_name,  p_available_stock, p_sell_stock, p_price_per_item, p_is_available, p_category_id) Values( %s, %s,%s,%s,%s,%s)
+2023-12-18 12:33:36,937 - INFO - Query executed successfully: DELETE FROM product WHERE p_id = %s
+2023-12-18 12:33:36,973 - INFO - Query executed successfully: alter table product AUTO_INCREMENT = 1
+2023-12-18 12:34:32,665 - INFO - Query executed successfully: INSERT INTO product (p_name,  p_available_stock, p_sell_stock, p_price_per_item, p_is_available, p_category_id) Values( %s, %s,%s,%s,%s,%s)
+2023-12-18 12:37:16,679 - INFO - Query executed successfully: INSERT INTO product (p_name,  p_available_stock, p_sell_stock, p_price_per_item, p_is_available, p_category_id) Values( %s, %s,%s,%s,%s,%s)
+2023-12-18 12:39:42,115 - INFO - Query executed successfully: INSERT INTO product (p_name,  p_available_stock, p_sell_stock, p_price_per_item, p_is_available, p_category_id) Values( %s,%s,%s,%s,%s,%s )
+2023-12-18 12:46:54,342 - INFO - Query executed successfully: UPDATE product SET p_price_per_item = %s,p_available_stock= %s WHERE p_id = %s

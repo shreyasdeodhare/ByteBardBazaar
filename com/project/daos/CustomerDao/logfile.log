@@ -1,0 +1,34 @@
+2023-12-14 17:08:59,638 - INFO - (1, 'John Doe', 1234567890, '123 Main St, Cityville', 'john.doe@example.com')
+2023-12-14 17:08:59,640 - INFO - (2, 'Jane Smith', 9876543210, '456 Oak St, Townsville', 'jane.smith@example.com')
+2023-12-14 17:08:59,640 - INFO - (3, 'Bob Johnson', 5555555555, '789 Pine St, Villagetown', 'bob.johnson@example.com')
+2023-12-14 17:23:49,218 - INFO - (1, 'John Doe', 1234567890, 'john.doe@example.com')
+2023-12-14 17:23:49,219 - INFO - (2, 'Jane Smith', 9876543210, 'jane.smith@example.com')
+2023-12-14 17:23:49,219 - INFO - (3, 'Bob Johnson', 5555555555, 'bob.johnson@example.com')
+2023-12-14 17:23:52,508 - INFO - (1, 'John Doe', 1234567890, 'john.doe@example.com')
+2023-12-14 17:23:52,508 - INFO - (2, 'Jane Smith', 9876543210, 'jane.smith@example.com')
+2023-12-14 17:23:52,510 - INFO - (3, 'Bob Johnson', 5555555555, 'bob.johnson@example.com')
+2023-12-14 19:41:46,517 - ERROR - Error executing query: ('INSERT INTO Customer (_cemail, _cid, _cname, _cnumber, cemail, cid, cname, cnumber) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)', ['jonathan123@gmail.com', 4, 'Jonathan', 9467893457, 'jonathan123@gmail.com', 4, 'Jonathan', 9467893457])
+Error: expected string or bytes-like object
+2023-12-14 19:57:37,904 - ERROR - Error executing query: ('INSERT INTO Customer (cid, cname, cnumber, cemail) VALUES (%s, %s, %s, %s)', [4, 'Jonathan', 9467893457, 'jonathan123@gmail.com'])
+Error: expected string or bytes-like object
+2023-12-14 20:01:54,373 - ERROR - Error executing query: ('INSERT INTO Customer (cid, cname, cnumber, cemail) VALUES (%s, %s, %s, %s)', [4, 'Jonathan', '9467893457', 'jonathan123@gmail.com'])
+Error: expected string or bytes-like object
+2023-12-14 20:02:46,208 - ERROR - Error executing query: ('INSERT INTO Customer (cid, cname, cnumber, cemail) VALUES (%s, %s, %s, %s)', [4, 'Jonathan', 9467893457, 'jonathan123@gmail.com'])
+Error: expected string or bytes-like object
+
+2023-12-14 20:18:48,755 - ERROR - Error executing query: ('INSERT INTO Customer (cid, cname, cnumber, cemail) VALUES (%s, %s, %s, %s)', [4, 'Jonathan', '9467893457', 'jonathan123@gmail.com'])
+Error: expected string or bytes-like object
+2023-12-14 20:33:58,563 - ERROR - Error executing query: INSERT INTO Customer (cid, cname, c_number,c_email) VALUES (%s, %s, %s,%s)
+Error: Not enough parameters for the SQL statement
+2023-12-14 20:36:26,264 - ERROR - Error executing query: INSERT INTO Customer (cid, cname, c_number,c_email) VALUES (%s, %s, %s,%s)
+Error: Not enough parameters for the SQL statement
+2023-12-14 20:38:37,127 - INFO - Query executed successfully: INSERT INTO Customer (cid, cname, c_number,c_email) VALUES (%s, %s, %s,%s)
+2023-12-14 21:05:05,471 - ERROR - Error executing query: INSERT INTO Customer (cid, cname, c_number,c_email) VALUES (%s, %s, %s,%s)
+Error: 1048 (23000): Column 'cname' cannot be null
+2023-12-14 21:05:44,039 - ERROR - Error executing query: INSERT INTO Customer (cid, cname, c_number,c_email) VALUES (%s, %s, %s,%s)
+Error: 1062 (23000): Duplicate entry '4' for key 'customer.PRIMARY'
+2023-12-14 21:06:12,004 - INFO - Query executed successfully: UPDATE customer SET c_number = %s,cname= %s,c_email=%s WHERE cid = %s
+2023-12-14 21:06:53,330 - INFO - Query executed successfully: UPDATE customer SET c_number = %s,cname= %s,c_email=%s WHERE cid = %s
+2023-12-14 21:09:07,884 - ERROR - Error executing query: DELETE FROM employees WHERE cid = %s
+Error: 1146 (42S02): Table 'ecommerce.employees' doesn't exist
+2023-12-14 21:09:41,777 - INFO - Query executed successfully: DELETE FROM customer WHERE cid = %s

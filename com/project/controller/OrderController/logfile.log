@@ -1,0 +1,16 @@
+2023-12-18 18:08:28,844 - INFO - (1, 1, datetime.date(2023, 12, 15), 1)
+2023-12-18 18:08:28,846 - ERROR - Error in get_all_addresss: __init__() missing 3 required positional arguments: 'cid', 'orderdate', and 'payid'
+2023-12-18 18:09:32,279 - INFO - (1, 1, datetime.date(2023, 12, 15), 1)
+2023-12-18 18:09:32,280 - ERROR - Error in get_all_addresss: __init__() missing 3 required positional arguments: 'cid', 'orderdate', and 'payid'
+2023-12-18 18:16:20,862 - INFO - (1, 1, datetime.date(2023, 12, 15), 1)
+2023-12-18 18:28:03,738 - INFO - Query executed successfully: INSERT INTO Orders (oid,cid,orderdate,payid) VALUES (%s, %s,%s,%s)
+2023-12-18 18:31:18,806 - INFO - Query executed successfully: UPDATE orders SET orderDate = %s  WHERE oid= %s
+2023-12-18 18:33:36,799 - ERROR - Error executing query: DELETE FROM customer WHERE cid = %s
+Error: 1451 (23000): Cannot delete or update a parent row: a foreign key constraint fails (`ecommerce`.`orders`, CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`cid`) REFERENCES `customer` (`cid`))
+2023-12-18 22:49:55,927 - INFO - (1, 1, datetime.date(2023, 12, 15), 1)
+2023-12-18 22:49:56,275 - INFO - (2, 2, datetime.date(2023, 11, 9), 2)
+2023-12-19 08:49:08,285 - ERROR - Error in delete_address: __init__() got an unexpected keyword argument 'amount'
+2023-12-19 08:51:49,262 - ERROR - Error in delete_orders: __init__() got an unexpected keyword argument 'amount'
+2023-12-19 08:53:45,230 - ERROR - Error in delete_orders: __init__() got an unexpected keyword argument 'amount'
+2023-12-19 09:07:17,827 - ERROR - Error in delete_orders: __init__() got an unexpected keyword argument 'orderDate'
+2023-12-19 09:08:30,584 - INFO - Query executed successfully: DELETE FROM orders WHERE oid = %s
