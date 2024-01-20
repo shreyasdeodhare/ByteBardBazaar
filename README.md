@@ -21,3 +21,15 @@ Tech Stuff:
 How It Turned Out:
 
 ByteBardBazar is a big success, showing I'm dedicated to making top-notch things. It's proof that I know my way around making data do cool stuff and making ByteBardBazar the best it can be. 🌐🚀
+
+
+Some of the outcomes achieved:
+1) Customer Wise Product Purchases:
+![image](https://github.com/shreyasdeodhare/ByteBardBazaar/assets/67466611/64d94394-a09c-4180-ba82-bee878bc3fd7)
+
+
+
+
+
+
+
