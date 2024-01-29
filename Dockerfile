@@ -17,4 +17,5 @@ EXPOSE 8000
 ENV FLASK_APP=com.project.controller.CwppController
 
 # Command to run the Flask application
-CMD ["flask", "run", "--host=0.0.0.0", "--port=8000"]
+# CMD ["flask", "run", "--host=0.0.0.0", "--port=8000"]
+CMD ["python","CwppController.py"]
