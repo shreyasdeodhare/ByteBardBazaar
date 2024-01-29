@@ -14,7 +14,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 EXPOSE 8000
 
 # Set the environment variable for Flask
-ENV FLASK_APP=com.project.controller.CwppController:app
+ENV FLASK_APP=com.project.controller.CwppController
 
 # Command to run the Flask application
 CMD ["flask", "run", "--host=0.0.0.0", "--port=8000"]
