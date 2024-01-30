@@ -6,11 +6,12 @@ WORKDIR /app
 
 # Copy only the necessary files
 # Copy the rest of the project files
-COPY . .
+COPY ./app
+
 #RUN pip install -r requirements.txt 
 
 # Install dependencies
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install -r requirements.txt
 
 
 
