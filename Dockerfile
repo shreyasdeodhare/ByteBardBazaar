@@ -6,7 +6,7 @@ WORKDIR /app
 
 # Copy only the necessary files
 # Copy the rest of the project files
-COPY ./app
+COPY . .
 
 #RUN pip install -r requirements.txt 
 
