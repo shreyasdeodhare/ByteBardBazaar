@@ -22,4 +22,4 @@ EXPOSE 8000
 ENV FLASK_APP=com.project.controller.CwppController
 
 # Command to run the Flask application
-CMD ["python", "CwppController.py"]
+CMD ["python", "main.py"]
