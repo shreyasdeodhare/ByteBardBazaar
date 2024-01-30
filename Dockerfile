@@ -5,13 +5,14 @@ FROM python:3.9-slim
 WORKDIR /app
 
 # Copy only the necessary files
-COPY requirements.txt .
+# Copy the rest of the project files
+COPY . .
+#RUN pip install -r requirements.txt 
 
 # Install dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy the rest of the project files
-COPY . .
+
 
 # Expose the port on which the application will run
 EXPOSE 8000
