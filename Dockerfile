@@ -5,21 +5,21 @@ FROM python:3.9-slim
 WORKDIR /app
 
 # Copy only the necessary files
-# Copy the rest of the project files
 COPY . .
 
-#RUN pip install -r requirements.txt 
-
 # Install dependencies
-RUN pip install  --no-cache -r requirements.txt
-
-
+RUN pip install --no-cache -r requirements.txt
 
 # Expose the port on which the application will run
 EXPOSE 8000
 
-# Set the environment variable for Flask
+# Set environment variables for Flask and database connection
 ENV FLASK_APP=com.project.controller.CwppController
+ENV DB_HOST=192.168.38.84
+ENV DB_PORT=3306
+ENV DB_USER=ecom
+ENV DB_PASSWORD=shreyas
+ENV DB_NAME=ecommerce
 
 # Command to run the Flask application
 CMD ["python", "main.py"]
