@@ -1,4 +1,4 @@
-DB_USER = "root"
+DB_USER = "ecomm"
 DB_PASSWORD = "shreyas"
 DB_HOST = "127.0.0.1"
 DB_NAME = "ecommerce"
