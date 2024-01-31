@@ -1,6 +1,6 @@
 DB_USER = "ecom"
 DB_PASSWORD = "shreyas"
-DB_HOST = "192.168.38.84"
+DB_HOST = "192.168.1.1"
 DB_NAME = "ecommerce"
 
 QUERY_INSERT_Customer  = "INSERT INTO Customer (cid, cname, c_email, c_number) VALUES (%s, %s, %s,%s)"
