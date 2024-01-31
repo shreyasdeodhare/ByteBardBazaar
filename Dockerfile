@@ -19,12 +19,12 @@ EXPOSE 8000
 
 # Set environment variables for Flask and database connection
 ENV FLASK_APP=com.project.controller.CwppController
-ENV DB_HOST=host.docker.internal  # Use this to connect to the host machine's MySQL
+ENV DB_HOST=host.docker.internal 
 ENV DB_PORT=3306
 ENV DB_USER=root
 ENV DB_PASSWORD=shreyas
 ENV DB_NAME=ecommerce
 
-# Command to run the Flask application
+# Command to run the Flask applicatio
 CMD ["python", "main.py"]
  
