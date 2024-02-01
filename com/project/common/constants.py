@@ -2,7 +2,7 @@ DB_USER = "root"
 DB_PASSWORD = "shreyas"
 DB_HOST = "127.0.0.1"
 DB_NAME = "ecommerce"
-DB_server_name="redberyl"
+DB_SERVER_NAME="redberyl"
 
 QUERY_INSERT_Customer  = "INSERT INTO Customer (cid, cname, c_email, c_number) VALUES (%s, %s, %s,%s)"
 QUERY_UPDATE_Customer ="UPDATE customer SET c_number = %s,cname= %s,c_email=%s WHERE cid = %s"
