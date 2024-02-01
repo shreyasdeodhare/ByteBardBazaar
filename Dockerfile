@@ -7,12 +7,14 @@ WORKDIR /app
 # Copy only the necessary files
 COPY . .
 
-# Install dependencies and clean up
-RUN apt-get update && \
-    apt-get install -y --no-install-recommends build-essential && \
-    pip install --no-cache -r requirements.txt && \
-    apt-get purge -y --auto-remove build-essential && \
-    rm -rf /var/lib/apt/lists/*
+# Copy requirements.txt to a temporary location
+COPY requirements.txt /tmp/requirements.txt
+
+# Install dependencies only if requirements.txt has changed
+RUN pip install --no-cache -r /tmp/requirements.txt
+
+# Remove the temporary requirements.txt
+RUN rm /tmp/requirements.txt
 
 # Expose the port on which the application will run
 EXPOSE 8000
@@ -25,6 +27,5 @@ ENV DB_USER=ecomm
 ENV DB_PASSWORD=shreyas
 ENV DB_NAME=ecommerce
 
-# Command to run the Flask applicatio
+# Command to run the Flask application
 CMD ["python", "main.py"]
- 
