@@ -11,7 +11,8 @@ COPY . .
 COPY requirements.txt /tmp/requirements.txt
 
 # Install dependencies only if requirements.txt has changed
-RUN pip install --no-cache -r /tmp/requirements.txt
+RUN pip install --no-cache-dir --upgrade pip && \
+    pip install --no-cache-dir -r /tmp/requirements.txt
 
 # Remove the temporary requirements.txt
 RUN rm /tmp/requirements.txt
