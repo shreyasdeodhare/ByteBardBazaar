@@ -32,5 +32,17 @@ ENV DB_PASSWORD=shreyas
 ENV DB_NAME=ecommerce
 ENV DB_SERVER_NAME=redberyl
 
+
+ENV MYSQL_ROOT_PASSWORD=shreyas
+ENV MYSQL_DATABASE=ecommerce
+ENV MYSQL_USER=root
+ENV MYSQL_PASSWORD=shreyas
+
+# Copy the SQL dump file to initialize the database
+COPY dump.sql /docker-entrypoint-initdb.d/
+
+# Expose the port on which the MySQL database will run
+EXPOSE 3306
+
 # Command to run the Flask application
 CMD ["python", "main.py"]
