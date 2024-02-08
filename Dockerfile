@@ -25,7 +25,7 @@ EXPOSE 8000
 
 # Set environment variables for Flask and database connection
 ENV FLASK_APP=com.project.controller.CwppController
-ENV DB_HOST=172.17.0.1
+ENV DB_HOST=127.0.0.1
 ENV DB_PORT=3306
 ENV DB_USER=root
 ENV DB_PASSWORD=shreyas
