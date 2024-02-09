@@ -1,7 +1,7 @@
 DB_USER = "root"
 DB_PASSWORD = "shreyas"
 # DB_HOST = "172.25.128.1"
-DB_HOST="127.0.0.1"
+DB_HOST="192.168.0.1"
 DB_NAME = "ecommerce"
 DB_SERVER_NAME="redberyl"
 
