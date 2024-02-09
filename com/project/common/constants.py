@@ -1,9 +1,9 @@
-DB_USER = "root"
-DB_PASSWORD = "shreyas"
+DB_USER = "admin"
+DB_PASSWORD = "shreyas189"
 # DB_HOST = "172.25.128.1"
-DB_HOST="192.168.1.1"
+DB_HOST="database-1.cdagy8kamvjs.ap-south-1.rds.amazonaws.com"
 DB_NAME = "ecommerce"
-DB_SERVER_NAME="redberyl"
+DB_SERVER_NAME="aws"
 
 QUERY_INSERT_Customer  = "INSERT INTO Customer (cid, cname, c_email, c_number) VALUES (%s, %s, %s,%s)"
 QUERY_UPDATE_Customer ="UPDATE customer SET c_number = %s,cname= %s,c_email=%s WHERE cid = %s"
