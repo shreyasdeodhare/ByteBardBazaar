@@ -1,7 +1,7 @@
 DB_USER = "admin"
 DB_PASSWORD = "shreyas189"
 # DB_HOST = "172.25.128.1"
-DB_HOST="database-1.cdagy8kamvjs.ap-south-1.rds.amazonaws.com"
+DB_HOST="122.169.8.198"
 DB_NAME = "ecommerce"
 DB_SERVER_NAME="aws"
 
