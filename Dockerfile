@@ -25,7 +25,7 @@ EXPOSE 8000
 
 # Set environment variables for Flask and database connection
 ENV FLASK_APP=com.project.controller.CwppController
-ENV DB_HOST=database-1.cdagy8kamvjs.ap-south-1.rds.amazonaws.com
+ENV DB_HOST=122.169.8.198
 ENV DB_PORT=3306
 ENV DB_USER=admin
 ENV DB_PASSWORD=shreyas189
