@@ -4,7 +4,6 @@ DB_PASSWORD = "shreyas189"
 DB_HOST="122.169.8.198"
 DB_NAME = "ecommerce"
 DB_SERVER_NAME="aws"
-
 QUERY_INSERT_Customer  = "INSERT INTO Customer (cid, cname, c_email, c_number) VALUES (%s, %s, %s,%s)"
 QUERY_UPDATE_Customer ="UPDATE customer SET c_number = %s,cname= %s,c_email=%s WHERE cid = %s"
 
