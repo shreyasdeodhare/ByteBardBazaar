@@ -33,10 +33,10 @@ ENV DB_NAME=ecommerce
 ENV DB_SERVER_NAME=aws
 
 
-ENV MYSQL_ROOT_PASSWORD=shreyas
+ENV MYSQL_ROOT_PASSWORD=shreyas189
 ENV MYSQL_DATABASE=ecommerce
-ENV MYSQL_USER=root
-ENV MYSQL_PASSWORD=shreyas
+ENV MYSQL_USER=admin
+ENV MYSQL_PASSWORD=shreyas189
 
 # Copy the SQL dump file to initialize the database
 COPY dump.sql /docker-entrypoint-initdb.d/
