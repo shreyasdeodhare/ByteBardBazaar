@@ -24,7 +24,7 @@ RUN rm /tmp/requirements.txt
 EXPOSE 8000
 
 # Set environment variables for Flask and database connection
-# ENV FLASK_APP=com.project.controller.CwppController
+ENV FLASK_APP=com.project.controller.CwppController
 # ENV DB_HOST=database-1.cdagy8kamvjs.ap-south-1.rds.amazonaws.com
 # ENV DB_PORT=3306
 # ENV DB_USER=admin
