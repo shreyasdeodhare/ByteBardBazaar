@@ -6,7 +6,7 @@
 # DB_SERVER_NAME="aws"
 DB_USER = "root"
 DB_PASSWORD = "shreyas"
-DB_HOST = "172.25.128.1"
+DB_HOST = "127.0.0.1"
 # DB_HOST="database-1.cdagy8kamvjs.ap-south-1.rds.amazonaws.com"
 DB_NAME = "ecommerce"
 DB_SERVER_NAME="redberyl"
