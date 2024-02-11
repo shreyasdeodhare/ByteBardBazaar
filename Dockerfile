@@ -24,19 +24,31 @@ RUN rm /tmp/requirements.txt
 EXPOSE 8000
 
 # Set environment variables for Flask and database connection
-ENV FLASK_APP=com.project.controller.CwppController
-ENV DB_HOST=database-1.cdagy8kamvjs.ap-south-1.rds.amazonaws.com
+# ENV FLASK_APP=com.project.controller.CwppController
+# ENV DB_HOST=database-1.cdagy8kamvjs.ap-south-1.rds.amazonaws.com
+# ENV DB_PORT=3306
+# ENV DB_USER=admin
+# ENV DB_PASSWORD=shreyas189
+# ENV DB_NAME=ecommerce
+# ENV DB_SERVER_NAME=aws
+
+ENV DB_HOST=172.25.128.1
 ENV DB_PORT=3306
-ENV DB_USER=admin
-ENV DB_PASSWORD=shreyas189
+ENV DB_USER=root
+ENV DB_PASSWORD=shreyas
 ENV DB_NAME=ecommerce
-ENV DB_SERVER_NAME=aws
+ENV DB_SERVER_NAME=redberyl
 
 
-ENV MYSQL_ROOT_PASSWORD=shreyas189
+# ENV MYSQL_ROOT_PASSWORD=shreyas189
+# ENV MYSQL_DATABASE=ecommerce
+# ENV MYSQL_USER=admin
+# ENV MYSQL_PASSWORD=shreyas189
+
+ENV MYSQL_ROOT_PASSWORD=shreyas
 ENV MYSQL_DATABASE=ecommerce
-ENV MYSQL_USER=admin
-ENV MYSQL_PASSWORD=shreyas189
+ENV MYSQL_USER=root
+ENV MYSQL_PASSWORD=shreyas
 
 # Copy the SQL dump file to initialize the database
 COPY dump.sql /docker-entrypoint-initdb.d/
