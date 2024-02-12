@@ -201,7 +201,8 @@ pipeline {
             steps {
                 script {
                     try {
-                        sh "docker run -p ${PORT_MAPPING} --name ${CONTAINER_NAME} ${IMAGE_NAME}"
+                                                sh "docker run -p ${PORT_MAPPING} --name ${CONTAINER_NAME} ${IMAGE_NAME}"
+
                     } catch (Exception runError) {
                         error("Failed to run Docker container: ${runError.message}")
                     }
