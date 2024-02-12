@@ -105,7 +105,7 @@ def waitForContainerReady(containerName) {
     def startTime = System.currentTimeMillis()
 
     while (System.currentTimeMillis() - startTime < timeout * 1000) {
-        def logs = bat(script: "docker logs ${containerName}", returnStatus: true, returnStdout: true).trim()
+        def logs = bat(script: "docker logs ${containerName}", returnStatus: true, returnStdout: true).toString().trim()
 
         if (logs.contains("Application is ready") || logs.contains("Server started on")) {
             echo "Container is ready!"
