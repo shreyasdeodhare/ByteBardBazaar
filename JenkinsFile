@@ -22,18 +22,7 @@ pipeline {
             }
         }
 
-        stage('Build code') {
-            steps {
-                script {
-                    try {
-                        // Install Python dependencies
-                        bat "pip install -r requirements.txt"
-                    } catch (Exception installError) {
-                        error("Failed to install Python dependencies: ${installError.message}")
-                    }
-                }
-            }
-        }
+        
 
         stage('SonarQube Analysis') {
             steps {
