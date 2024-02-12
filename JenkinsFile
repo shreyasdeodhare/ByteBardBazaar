@@ -64,26 +64,17 @@ pipeline {
                         // Run the Docker container in the background and immediately detach
                         bat "docker run -d -p ${PORT_MAPPING} --name ${CONTAINER_NAME} ${IMAGE_NAME}"
 
-                        // Check the container logs for a specific message or condition indicating readiness
+                        // Wait for the application to start
                         waitForContainerReady(CONTAINER_NAME)
+
+                        // Retrieve the API link from the running container
+                        def apiLink = bat(script: "docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' ${CONTAINER_NAME}", returnStatus: true, returnStdout: true).trim()
+                        echo "API link: http://${apiLink}:8000"
+
+                        // Here, you can use the API link for further testing or validation
+
                     } catch (Exception runError) {
                         error("Failed to run Docker container: ${runError.message}")
-                    }
-                }
-            }
-        }
-
-        stage('Push Docker Image to Docker Hub') {
-            steps {
-                script {
-                    try {
-                        // Login to Docker Hub
-                        bat "docker login -u shreyasdeodhare18@gmail.com -p Shreyas189"
-
-                        // Push the Docker image to Docker Hub
-                        bat "docker push ${DOCKERHUB_REPO}:${BUILD_NUMBER}"
-                    } catch (Exception pushError) {
-                        error("Failed to push Docker image to Docker Hub: ${pushError.message}")
                     }
                 }
             }
@@ -102,36 +93,43 @@ pipeline {
 
 // Function to wait for the container to be ready
 def waitForContainerReady(containerName) {
-    def timeout = 300 // Timeout in seconds
-    def startTime = System.currentTimeMillis()
+    timeout(time: 5, unit: 'MINUTES') {
+        // Continuously tail the logs to check for a specific message
+        script {
+            def appReady = false
 
-    while (System.currentTimeMillis() - startTime < timeout * 1000) {
-        def logs = bat(script: "docker logs ${containerName}", returnStatus: true, returnStdout: true).toString().trim()
-        
-        // Check for a specific message or condition in the logs
-        if (logs.contains("Application is ready") || logs.contains("Server started on")) {
-            echo "Container is ready!"
-            return
+            // Continue tailing the logs until the application is ready
+            while (!appReady) {
+                def logs = bat(script: "docker logs ${containerName}", returnStatus: true, returnStdout: true).toString().trim()
+
+                // Check for a specific message indicating readiness
+                if (logs.contains("Application is ready") || logs.contains("Server started on")) {
+                    echo "Container is ready!"
+                    appReady = true
+                }
+
+                // Sleep for a short duration before checking again
+                sleep(10)
+            }
         }
-
-        sleep(10) // Sleep for 10 seconds before checking again
     }
-
-    error "Container did not become ready within the timeout period."
 }
 
 // Function to stop and remove the Docker container
 def cleanUpContainer(containerName) {
-    try {
-        // Stop the Docker container
-        bat "docker stop ${containerName}"
+    script {
+        // Check if the container exists before attempting to stop it
+        def containerExists = bat(script: "docker ps -a --filter name=${containerName} --format {{.Names}}", returnStatus: true).trim()
 
-        // Add a delay to ensure the container is stopped before removal
-        sleep(5)
+        if (containerExists == containerName) {
+            // Stop the Docker container
+            bat "docker stop ${containerName}"
+
+            // Add a delay to ensure the container is stopped before removal
+            sleep(5)
+        }
 
         // Remove the Docker container
-        bat "docker rm ${containerName}"
-    } catch (Exception cleanupError) {
-        echo "Failed to stop and remove the Docker container: ${cleanupError.message}"
+        bat "docker rm -f ${containerName}"
     }
 }
