@@ -183,12 +183,12 @@ pipeline {
             steps {
                 script {
                     try {
-                        def imageExists = bat(script: "docker images ${IMAGE_NAME} | findstr ${IMAGE_NAME}", returnStatus: true) == 0
+                        def imageExists = sh(script: "docker images ${IMAGE_NAME} | findstr ${IMAGE_NAME}", returnStatus: true) == 0
 
                         if (imageExists) {
                             echo "Using existing Docker image."
                         } else {
-                            bat "docker build -t ${IMAGE_NAME} ."
+                            sh "docker build -t ${IMAGE_NAME} ."
                         }
                     } catch (Exception buildError) {
                         error("Failed to build or pull Docker image: ${buildError.message}")
@@ -201,7 +201,7 @@ pipeline {
             steps {
                 script {
                     try {
-                        bat "docker run -p ${PORT_MAPPING} --name ${CONTAINER_NAME} ${IMAGE_NAME}"
+                        sh docker run -p ${PORT_MAPPING} --name ${CONTAINER_NAME} ${IMAGE_NAME}"
                     } catch (Exception runError) {
                         error("Failed to run Docker container: ${runError.message}")
                     }
@@ -214,13 +214,13 @@ pipeline {
                 script {
                     try {
                         // Login to Docker Hub
-                        bat "docker login -u shreyasdeodhare18@gmail.com -p Shreyas189"
+                        sh "docker login -u shreyasdeodhare18@gmail.com -p Shreyas189"
 
                         // Tag the Docker image for Docker Hub repository
-                        bat "docker tag ${IMAGE_NAME} ${DOCKERHUB_REPO}:${BUILD_NUMBER}"
+                        sh "docker tag ${IMAGE_NAME} ${DOCKERHUB_REPO}:${BUILD_NUMBER}"
 
                         // Push the Docker image to Docker Hub
-                        bat "docker push ${DOCKERHUB_REPO}:${BUILD_NUMBER}"
+                        sh "docker push ${DOCKERHUB_REPO}:${BUILD_NUMBER}"
                     } catch (Exception pushError) {
                         error("Failed to push Docker image to Docker Hub: ${pushError.message}")
                     }
@@ -231,7 +231,7 @@ pipeline {
         stage('SonarQube Analysis') {
             steps {
                 script {
-                    bat "sonar-scanner -Dsonar.projectKey=squ_614561c007f3f673857dc1d145caea64c5c5384c -Dsonar.sources=. -Dsonar.login=admin -Dsonar.password=shreyas"
+                    sh "sonar-scanner -Dsonar.projectKey=squ_614561c007f3f673857dc1d145caea64c5c5384c -Dsonar.sources=. -Dsonar.login=admin -Dsonar.password=shreyas"
                 }
             }
         }
@@ -241,7 +241,7 @@ pipeline {
         always {
             script {
                 try {
-                    bat "docker stop ${CONTAINER_NAME} && docker rm ${CONTAINER_NAME}"
+                    sh "docker stop ${CONTAINER_NAME} && docker rm ${CONTAINER_NAME}"
                 } catch (Exception cleanupError) {
                     echo "Failed to stop and remove the Docker container: ${cleanupError.message}"
                 }
