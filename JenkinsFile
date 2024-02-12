@@ -26,7 +26,7 @@ pipeline {
             steps {
                 script {
                     try {
-
+                        // SonarQube analysis command
                         bat "sonar-scanner -Dsonar.projectKey=squ_f42dcb9d6c7a053903d0d65abaf756fec86546d1 -Dsonar.sources=. -Dsonar.login=admin -Dsonar.password=shreyas"
                     } catch (Exception sonarError) {
                         error("Failed to perform SonarQube analysis: ${sonarError.message}")
@@ -44,9 +44,10 @@ pipeline {
                         if (imageExists) {
                             echo "Using existing Docker image."
                         } else {
-
+                            // Copy SonarQube analysis report to the Docker context
                             bat "cp -r .scannerwork ${WORKSPACE}"
 
+                            // Build the Docker image
                             bat "docker build -t ${IMAGE_NAME} ."
                         }
                     } catch (Exception buildError) {
@@ -60,9 +61,10 @@ pipeline {
             steps {
                 script {
                     try {
-
+                        // Run the Docker container in the background and immediately detach
                         bat "docker run -d -p ${PORT_MAPPING} --name ${CONTAINER_NAME} ${IMAGE_NAME}"
 
+                        // Check the container logs for a specific message or condition indicating readiness
                         waitForContainerReady(CONTAINER_NAME)
                     } catch (Exception runError) {
                         error("Failed to run Docker container: ${runError.message}")
@@ -75,9 +77,10 @@ pipeline {
             steps {
                 script {
                     try {
-
+                        // Login to Docker Hub
                         bat "docker login -u shreyasdeodhare18@gmail.com -p Shreyas189"
 
+                        // Push the Docker image to Docker Hub
                         bat "docker push ${DOCKERHUB_REPO}:${BUILD_NUMBER}"
                     } catch (Exception pushError) {
                         error("Failed to push Docker image to Docker Hub: ${pushError.message}")
@@ -90,30 +93,45 @@ pipeline {
     post {
         always {
             script {
-                try {
-                    bat "docker stop ${CONTAINER_NAME} && docker rm ${CONTAINER_NAME}"
-                } catch (Exception cleanupError) {
-                    echo "Failed to stop and remove the Docker container: ${cleanupError.message}"
-                }
+                // Stop and remove the Docker container if it exists
+                cleanUpContainer(CONTAINER_NAME)
             }
         }
     }
 }
 
+// Function to wait for the container to be ready
 def waitForContainerReady(containerName) {
-    def timeout = 300 
+    def timeout = 300 // Timeout in seconds
     def startTime = System.currentTimeMillis()
 
     while (System.currentTimeMillis() - startTime < timeout * 1000) {
         def logs = bat(script: "docker logs ${containerName}", returnStatus: true, returnStdout: true).toString().trim()
-
+        
+        // Check for a specific message or condition in the logs
         if (logs.contains("Application is ready") || logs.contains("Server started on")) {
             echo "Container is ready!"
             return
         }
 
-        sleep(10) 
+        sleep(10) // Sleep for 10 seconds before checking again
     }
 
     error "Container did not become ready within the timeout period."
+}
+
+// Function to stop and remove the Docker container
+def cleanUpContainer(containerName) {
+    try {
+        // Stop the Docker container
+        bat "docker stop ${containerName}"
+
+        // Add a delay to ensure the container is stopped before removal
+        sleep(5)
+
+        // Remove the Docker container
+        bat "docker rm ${containerName}"
+    } catch (Exception cleanupError) {
+        echo "Failed to stop and remove the Docker container: ${cleanupError.message}"
+    }
 }
