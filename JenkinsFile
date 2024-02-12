@@ -22,13 +22,11 @@ pipeline {
             }
         }
 
-        
-
         stage('SonarQube Analysis') {
             steps {
                 script {
                     try {
-                        // SonarQube analysis command
+
                         bat "sonar-scanner -Dsonar.projectKey=squ_f42dcb9d6c7a053903d0d65abaf756fec86546d1 -Dsonar.sources=. -Dsonar.login=admin -Dsonar.password=shreyas"
                     } catch (Exception sonarError) {
                         error("Failed to perform SonarQube analysis: ${sonarError.message}")
@@ -46,6 +44,9 @@ pipeline {
                         if (imageExists) {
                             echo "Using existing Docker image."
                         } else {
+
+                            bat "cp -r .scannerwork ${WORKSPACE}"
+
                             bat "docker build -t ${IMAGE_NAME} ."
                         }
                     } catch (Exception buildError) {
@@ -59,7 +60,10 @@ pipeline {
             steps {
                 script {
                     try {
-                        bat "docker run -p ${PORT_MAPPING} --name ${CONTAINER_NAME} ${IMAGE_NAME}"
+
+                        bat "docker run -d -p ${PORT_MAPPING} --name ${CONTAINER_NAME} ${IMAGE_NAME}"
+
+                        waitForContainerReady(CONTAINER_NAME)
                     } catch (Exception runError) {
                         error("Failed to run Docker container: ${runError.message}")
                     }
@@ -71,13 +75,9 @@ pipeline {
             steps {
                 script {
                     try {
-                        // Login to Docker Hub
+
                         bat "docker login -u shreyasdeodhare18@gmail.com -p Shreyas189"
 
-                        // Tag the Docker image for Docker Hub repository
-                        bat "docker tag ${IMAGE_NAME} ${DOCKERHUB_REPO}:${BUILD_NUMBER}"
-
-                        // Push the Docker image to Docker Hub
                         bat "docker push ${DOCKERHUB_REPO}:${BUILD_NUMBER}"
                     } catch (Exception pushError) {
                         error("Failed to push Docker image to Docker Hub: ${pushError.message}")
@@ -98,4 +98,22 @@ pipeline {
             }
         }
     }
+}
+
+def waitForContainerReady(containerName) {
+    def timeout = 300 
+    def startTime = System.currentTimeMillis()
+
+    while (System.currentTimeMillis() - startTime < timeout * 1000) {
+        def logs = bat(script: "docker logs ${containerName}", returnStatus: true, returnStdout: true).trim()
+
+        if (logs.contains("Application is ready") || logs.contains("Server started on")) {
+            echo "Container is ready!"
+            return
+        }
+
+        sleep(10) 
+    }
+
+    error "Container did not become ready within the timeout period."
 }
