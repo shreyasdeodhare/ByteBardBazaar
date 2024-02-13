@@ -36,17 +36,7 @@ pipeline {
             }
         }
 
-        stage('Build code') {
-            steps {
-                script {
-                    try {
-                        bat "pip install -r reqirements.txt"
-                    } catch (Exception buildError) {
-                        error("Failed to build code: ${buildError.message}")
-                    }
-                }
-            }
-        }
+       
 
         stage('Build Docker Image') {
             steps {
