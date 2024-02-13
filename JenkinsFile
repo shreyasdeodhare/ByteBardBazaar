@@ -38,7 +38,7 @@ pipeline {
                         // SonarQube analysis command
                         // bat "sonar-scanner -Dsonar.projectKey=bakend_store1 -Dsonar.sources=. -Dsonar.login=admin -Dsonar.password=shreyas"
                           //bat "sonar-scanner -Dsonar.projectKey=bakend_store1  -Dsonar.sources=. -Dsonar.login=squ_a1f30734357a9fa27024410bc41b600d88c2fdfb "
-                           bat "sonar-scanner -Dsonar.projectKey=bakend_store3 -Dsonar.sources=.  -Dsonar.token=sqp_d46766d9e70016c52742155df9384c0f4f7e87e3"
+                           bat "sonar-scanner -Dsonar.projectKey=bakend_store3 -Dsonar.sources=.  -Dsonar.token=sqp_d46766d9e70016c52742155df9384c0f4f7e87e3  -Dsonar.projectBaseDir=${WORKSPACE}"
                 
                     } catch (Exception sonarError) {
                         error("Failed to perform SonarQube analysis: ${sonarError.message}")
