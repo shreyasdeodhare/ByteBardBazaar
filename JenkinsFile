@@ -28,7 +28,7 @@ pipeline {
                 script {
                     try {
                         // SonarQube analysis command
-                        bat "sonar-scanner -Dsonar.projectKey=squ_f42dcb9d6c7a053903d0d65abaf756fec86546d1 -Dsonar.sources=. -Dsonar.login=admin -Dsonar.password=shreyas"
+                        bat "sonar-scanner -Dsonar.projectKey=bakend_store1 -Dsonar.sources=. -Dsonar.login=admin -Dsonar.password=shreyas"
                     } catch (Exception sonarError) {
                         error("Failed to perform SonarQube analysis: ${sonarError.message}")
                     }
