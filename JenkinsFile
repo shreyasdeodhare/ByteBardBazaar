@@ -35,21 +35,21 @@ pipeline {
             }
         }
 
-        stage('Build Docker Image') {
-            steps {
-                script {
-                    try {
-                        // Copy SonarQube analysis report to the Docker context
-                        bat "cp -r .scannerwork ${WORKSPACE}"
-
-                        // Build the Docker image
-                        bat "docker build -t ${IMAGE_NAME} ."
-                    } catch (Exception buildError) {
-                        error("Failed to build Docker image: ${buildError.message}")
-                    }
-                }
+       stage('Build Docker Image') {
+    steps {
+        script {
+            try {
+                // Copy SonarQube analysis report to the Docker context
+                bat "xcopy /E .scannerwork ${WORKSPACE}"
+                
+                // Build the Docker image
+                bat "docker build -t ${IMAGE_NAME} ."
+            } catch (Exception buildError) {
+                error("Failed to build Docker image: ${buildError.message}")
             }
         }
+    }
+}
 
         stage('Push Docker Image to Docker Hub') {
             steps {
