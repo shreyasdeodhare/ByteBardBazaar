@@ -39,16 +39,16 @@ pipeline {
             steps {
                 script {
                     try {
-                        def imageExists = bat(script: "docker images ${IMAGE_NAME} | findstr ${IMAGE_NAME}", returnStatus: true) == 0
+                        def imageExists = sh(script: "docker images ${IMAGE_NAME} | grep ${IMAGE_NAME}", returnStatus: true)
 
-                        if (imageExists) {
+                        if (imageExists == 0) {
                             echo "Using existing Docker image."
                         } else {
                             // Copy SonarQube analysis report to the Docker context
-                            bat "cp -r .scannerwork ${WORKSPACE}"
+                            sh "cp -r .scannerwork ${WORKSPACE}"
 
                             // Build the Docker image
-                            bat "docker build -t ${IMAGE_NAME} ."
+                            sh "docker build -t ${IMAGE_NAME} ."
                         }
                     } catch (Exception buildError) {
                         error("Failed to build Docker image: ${buildError.message}")
@@ -62,33 +62,15 @@ pipeline {
                 script {
                     try {
                         // Login to Docker Hub
-                        bat "docker login -u shreyasdeodhare18@gmail.com -p Shreyas189"
+                        sh "docker login -u shreyasdeodhare18@gmail.com -p Shreyas189"
 
                         // Tag the Docker image for Docker Hub repository
-                        bat "docker tag ${IMAGE_NAME} ${DOCKERHUB_REPO}:${BUILD_NUMBER}"
+                        sh "docker tag ${IMAGE_NAME} ${DOCKERHUB_REPO}:${BUILD_NUMBER}"
 
                         // Push the Docker image to Docker Hub
-                        bat "docker push ${DOCKERHUB_REPO}:${BUILD_NUMBER}"
+                        sh "docker push ${DOCKERHUB_REPO}:${BUILD_NUMBER}"
                     } catch (Exception pushError) {
                         error("Failed to push Docker image to Docker Hub: ${pushError.message}")
-                    }
-                }
-            }
-        }
-
-        stage('Run Docker Container') {
-            steps {
-                script {
-                    // Use the 'container()' block to run the Docker container
-                    container("${IMAGE_NAME}") {
-                        // Wait for the application to start
-                        waitForContainerReady(CONTAINER_NAME)
-
-                        // Retrieve the API link from the running container
-                        def apiLink = bat(script: "docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' ${CONTAINER_NAME}", returnStatus: true, returnStdout: true).trim()
-                        echo "API link: http://${apiLink}:8000"
-
-                        // Here, you can use the API link for further testing or validation
                     }
                 }
             }
@@ -99,58 +81,15 @@ pipeline {
         always {
             script {
                 // Stop and remove the Docker container if it exists
-                cleanUpContainer(CONTAINER_NAME)
-            }
-        }
-    }
-}
+                def containerExists = sh(script: "docker ps -a --filter name=${CONTAINER_NAME} --format {{.Names}}", returnStatus: true)
 
-// Function to wait for the container to be ready
-def waitForContainerReady(containerName) {
-    timeout(time: 5, unit: 'MINUTES') {
-        // Continuously tail the logs to check for a specific message
-        script {
-            def appReady = false
-            def timeoutCounter = 0
-            def maxTimeout = 60 // Maximum time to wait in seconds
-
-            // Continue tailing the logs until the application is ready or timeout is reached
-            while (!appReady && timeoutCounter < maxTimeout) {
-                def logs = bat(script: "docker logs ${containerName}", returnStatus: true, returnStdout: true).toString().trim()
-
-                // Check for a specific message indicating readiness
-                if (logs.contains("Application is ready") || logs.contains("Server started on")) {
-                    echo "Container is ready!"
-                    appReady = true
+                if (containerExists == 0) {
+                    sh "docker stop ${CONTAINER_NAME}"
+                    sleep(5)
                 }
 
-                // Sleep for a short duration before checking again
-                sleep(10)
-                timeoutCounter++
-            }
-
-            if (!appReady) {
-                error("Timed out waiting for the container to be ready.")
+                sh "docker rm -f ${CONTAINER_NAME}"
             }
         }
-    }
-}
-
-// Function to stop and remove the Docker container
-def cleanUpContainer(containerName) {
-    script {
-        // Check if the container exists before attempting to stop it
-        def containerExists = bat(script: "docker ps -a --filter name=${containerName} --format {{.Names}}", returnStatus: true).trim()
-
-        if (containerExists == containerName) {
-            // Stop the Docker container
-            bat "docker stop ${containerName}"
-
-            // Add a delay to ensure the container is stopped before removal
-            sleep(5)
-        }
-
-        // Remove the Docker container
-        bat "docker rm -f ${containerName}"
     }
 }
