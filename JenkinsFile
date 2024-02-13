@@ -37,13 +37,12 @@ pipeline {
         }
 
        
-
         stage('Build Docker Image') {
             steps {
                 script {
                     try {
-                        // Copy SonarQube analysis report to the Docker context
-                        bat "xcopy /E .scannerwork ${WORKSPACE}"
+                        // Copy SonarQube analysis report to the Docker context (suppress overwrite prompt with /Y)
+                        bat "xcopy /E /Y .scannerwork ${WORKSPACE}"
 
                         // Build the Docker image
                         bat "docker build -t ${IMAGE_NAME} ."
