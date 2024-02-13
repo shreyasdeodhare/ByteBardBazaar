@@ -22,6 +22,14 @@ pipeline {
                 }
             }
         }
+         stage('Print Workspace Contents') {
+    steps {
+        script {
+            // Use the 'dir' command to list files in the workspace
+            bat "dir ${WORKSPACE}"
+        }
+    }
+}
 
         stage('SonarQube Analysis') {
             steps {
