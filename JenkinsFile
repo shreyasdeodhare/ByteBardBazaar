@@ -39,17 +39,11 @@ pipeline {
             steps {
                 script {
                     try {
-                        def imageExists = sh(script: "docker images ${IMAGE_NAME} | grep ${IMAGE_NAME}", returnStatus: true)
+                        // Copy SonarQube analysis report to the Docker context
+                        bat "cp -r .scannerwork ${WORKSPACE}"
 
-                        if (imageExists == 0) {
-                            echo "Using existing Docker image."
-                        } else {
-                            // Copy SonarQube analysis report to the Docker context
-                            bat "cp -r .scannerwork ${WORKSPACE}"
-
-                            // Build the Docker image
-                            bat "docker build -t ${IMAGE_NAME} ."
-                        }
+                        // Build the Docker image
+                        bat "docker build -t ${IMAGE_NAME} ."
                     } catch (Exception buildError) {
                         error("Failed to build Docker image: ${buildError.message}")
                     }
@@ -63,14 +57,23 @@ pipeline {
                     try {
                         // Login to Docker Hub
                         bat "docker login -u shreyasdeodhare18@gmail.com -p Shreyas189"
-
-                        // Tag the Docker image for Docker Hub repository
-                         bat "docker tag ${IMAGE_NAME} ${DOCKERHUB_REPO}:${BUILD_NUMBER}"
-
+                        
                         // Push the Docker image to Docker Hub
-                        bat  "docker push ${DOCKERHUB_REPO}:${BUILD_NUMBER}"
+                        bat "docker push ${DOCKERHUB_REPO}:${BUILD_NUMBER}"
                     } catch (Exception pushError) {
                         error("Failed to push Docker image to Docker Hub: ${pushError.message}")
+                    }
+                }
+            }
+        }
+
+        stage('Run Docker Container') {
+            steps {
+                script {
+                    try {
+                        bat "docker run -p ${PORT_MAPPING} --name ${CONTAINER_NAME} ${IMAGE_NAME}"
+                    } catch (Exception runError) {
+                        error("Failed to run Docker container: ${runError.message}")
                     }
                 }
             }
@@ -80,15 +83,11 @@ pipeline {
     post {
         always {
             script {
-                // Stop and remove the Docker container if it exists
-                def containerExists = bat(script: "docker ps -a --filter name=${CONTAINER_NAME} --format {{.Names}}", returnStatus: true)
-
-                if (containerExists == 0) {
-                    bat "docker stop ${CONTAINER_NAME}"
-                    sleep(5)
+                try {
+                    bat "docker stop ${CONTAINER_NAME} && docker rm ${CONTAINER_NAME}"
+                } catch (Exception cleanupError) {
+                    echo "Failed to stop and remove the Docker container: ${cleanupError.message}"
                 }
-
-                bat "docker rm -f ${CONTAINER_NAME}"
             }
         }
     }
