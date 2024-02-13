@@ -7,6 +7,7 @@ pipeline {
         PORT_MAPPING = '8000:8000'
         GITHUB_REPO_URL = 'https://github.com/shreyasdeodhare/byteBardBazaar.git'
         DOCKERHUB_REPO = 'ssddev007/bytebardbazar'
+        DOCKER_IMAGE_TAG = 'latest'  // Change this tag according to your versioning strategy
     }
 
     stages {
@@ -35,21 +36,33 @@ pipeline {
             }
         }
 
-       stage('Build Docker Image') {
-    steps {
-        script {
-            try {
-                // Copy SonarQube analysis report to the Docker context
-                bat "xcopy /E .scannerwork ${WORKSPACE}"
-                
-                // Build the Docker image
-                bat "docker build -t ${IMAGE_NAME} ."
-            } catch (Exception buildError) {
-                error("Failed to build Docker image: ${buildError.message}")
+        stage('Build code') {
+            steps {
+                script {
+                    try {
+                        bat "pip install -r reqirements.txt"
+                    } catch (Exception buildError) {
+                        error("Failed to build code: ${buildError.message}")
+                    }
+                }
             }
         }
-    }
-}
+
+        stage('Build Docker Image') {
+            steps {
+                script {
+                    try {
+                        // Copy SonarQube analysis report to the Docker context
+                        bat "xcopy /E .scannerwork ${WORKSPACE}"
+
+                        // Build the Docker image
+                        bat "docker build -t ${IMAGE_NAME} ."
+                    } catch (Exception buildError) {
+                        error("Failed to build Docker image: ${buildError.message}")
+                    }
+                }
+            }
+        }
 
         stage('Push Docker Image to Docker Hub') {
             steps {
@@ -58,8 +71,11 @@ pipeline {
                         // Login to Docker Hub
                         bat "docker login -u shreyasdeodhare18@gmail.com -p Shreyas189"
                         
+                        // Tag the Docker image for Docker Hub repository
+                        bat "docker tag ${IMAGE_NAME} ${DOCKERHUB_REPO}:${DOCKER_IMAGE_TAG}"
+
                         // Push the Docker image to Docker Hub
-                        bat "docker push ${DOCKERHUB_REPO}:${BUILD_NUMBER}"
+                        bat "docker push ${DOCKERHUB_REPO}:${DOCKER_IMAGE_TAG}"
                     } catch (Exception pushError) {
                         error("Failed to push Docker image to Docker Hub: ${pushError.message}")
                     }
