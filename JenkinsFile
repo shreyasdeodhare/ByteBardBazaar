@@ -45,10 +45,10 @@ pipeline {
                             echo "Using existing Docker image."
                         } else {
                             // Copy SonarQube analysis report to the Docker context
-                            sh "cp -r .scannerwork ${WORKSPACE}"
+                            bat "cp -r .scannerwork ${WORKSPACE}"
 
                             // Build the Docker image
-                            sh "docker build -t ${IMAGE_NAME} ."
+                            bat "docker build -t ${IMAGE_NAME} ."
                         }
                     } catch (Exception buildError) {
                         error("Failed to build Docker image: ${buildError.message}")
@@ -62,13 +62,13 @@ pipeline {
                 script {
                     try {
                         // Login to Docker Hub
-                        sh "docker login -u shreyasdeodhare18@gmail.com -p Shreyas189"
+                        bat "docker login -u shreyasdeodhare18@gmail.com -p Shreyas189"
 
                         // Tag the Docker image for Docker Hub repository
-                        sh "docker tag ${IMAGE_NAME} ${DOCKERHUB_REPO}:${BUILD_NUMBER}"
+                         bat "docker tag ${IMAGE_NAME} ${DOCKERHUB_REPO}:${BUILD_NUMBER}"
 
                         // Push the Docker image to Docker Hub
-                        sh "docker push ${DOCKERHUB_REPO}:${BUILD_NUMBER}"
+                        bat  "docker push ${DOCKERHUB_REPO}:${BUILD_NUMBER}"
                     } catch (Exception pushError) {
                         error("Failed to push Docker image to Docker Hub: ${pushError.message}")
                     }
@@ -81,14 +81,14 @@ pipeline {
         always {
             script {
                 // Stop and remove the Docker container if it exists
-                def containerExists = sh(script: "docker ps -a --filter name=${CONTAINER_NAME} --format {{.Names}}", returnStatus: true)
+                def containerExists = bat(script: "docker ps -a --filter name=${CONTAINER_NAME} --format {{.Names}}", returnStatus: true)
 
                 if (containerExists == 0) {
-                    sh "docker stop ${CONTAINER_NAME}"
+                    bat "docker stop ${CONTAINER_NAME}"
                     sleep(5)
                 }
 
-                sh "docker rm -f ${CONTAINER_NAME}"
+                bat "docker rm -f ${CONTAINER_NAME}"
             }
         }
     }
