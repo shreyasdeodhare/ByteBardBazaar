@@ -53,7 +53,7 @@ ENV MYSQL_PASSWORD=shreyas
 # Copy the SQL dump file to initialize the database
 COPY dump.sql /docker-entrypoint-initdb.d/
 
-# Expose the port on which the MySQL database will run
+
 EXPOSE 3306
 
 # Command to run the Flask application
